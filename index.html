@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es-CU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultor Virtual | Winobad y Asociados</title>
+    <style>
+        :root { 
+            --azul: #002855; 
+            --dorado: #d4af37; 
+            --gris-fondo: #f0f2f5; 
+            --blanco: #ffffff; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--gris-fondo); 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh;
+            height: -webkit-fill-available;
+        }
+
+        /* Encabezado Profesional */
+        header { 
+            background: var(--azul); 
+            color: white; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 4px solid var(--dorado);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+
+        .logo { 
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%; 
+            border: 2px solid var(--dorado); 
+            background: white; 
+            margin-bottom: 5px;
+            object-fit: contain;
+        }
+
+        .slogan {
+            font-size: 0.7rem;
+            color: var(--dorado);
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* Area de Chat */
+        .chat-container { 
+            max-width: 600px; 
+            margin: 10px auto; 
+            background: var(--blanco); 
+            width: 95%;
+            display: flex; 
+            flex-direction: column; 
+            flex-grow: 1; 
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        #chat-box { 
+            padding: 20px; 
+            overflow-y: auto; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px;
+        }
+
+        .msg { 
+            padding: 12px 16px; 
+            border-radius: 18px; 
+            max-width: 85%; 
+            font-size: 1rem; 
+            line-height: 1.4;
+        }
+
+        .bot { 
+            background: #e9ecef; 
+            color: #1a1a1a; 
+            align-self: flex-start; 
+            border-bottom-left-radius: 2px; 
+        }
+
+        .user { 
+            background: var(--azul); 
+            color: white; 
+            align-self: flex-end; 
+            border-bottom-right-radius: 2px; 
+        }
+
+        /* Indicador de escritura */
+        .typing { 
+            font-size: 0.8rem; 
+            color: #888; 
+            margin-left: 20px; 
+            display: none; 
+            margin-bottom: 10px;
+        }
+
+        /* Entrada de texto */
+        .input-area { 
+            padding: 15px; 
+            border-top: 1px solid #eee; 
+            display: flex; 
+            gap: 10px; 
+            background: white;
+        }
+
+        input { 
+            flex-grow: 1; 
+            padding: 12px 18px; 
+            border: 1px solid #ddd; 
+            border-radius: 25px; 
+            outline: none; 
+            font-size: 1rem;
+        }
+
+        button { 
+            background: var(--azul); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-weight: bold;
+        }
+
+        /* Panel Final */
+        .final-panel { 
+            display: none; 
+            padding: 20px; 
+            background: #fffdf5; 
+            border-top: 2px solid var(--dorado);
+            text-align: center;
+        }
+
+        .btn-contact {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Winobad y Asociados" class="logo" onerror="this.src='https://via.placeholder.com/80?text=Winobad'">
+    <div style="font-weight: bold; font-size: 1.2rem;">Winobad y Asociados</div>
+    <p class="slogan">Optimizamos tu éxito, aseguramos tu futuro</p>
+</header>
+
+<div class="chat-container">
+    <div id="chat-box">
+        <div class="msg bot">¡Hola! Es un gusto recibirle en nuestro espacio digital. Soy su asistente de <b>Winobad y Asociados</b>.</div>
+        <div class="msg bot">Estamos aquí para ayudarle a dar el siguiente paso con su negocio. Para comenzar esta atención personalizada, ¿podría decirme su nombre o el de su entidad?</div>
+    </div>
+    
+    <div id="typing" class="typing">El consultor está redactando una respuesta...</div>
+
+    <div class="input-area" id="input-section">
+        <input type="text" id="user-input" placeholder="Escriba aquí..." autocomplete="off">
+        <button onclick="procesar()">Enviar</button>
+    </div>
+
+    <div id="final-section" class="final-panel">
+        <p style="color: var(--azul); font-weight: bold;">¡Excelente! He recopilado la información para su diagnóstico inicial.</p>
+        <p style="font-size: 0.85rem; margin-bottom: 15px;">¿Por qué vía prefiere que le enviemos nuestra propuesta y tarifas?</p>
+        <a href="#" onclick="terminar('whatsapp')" class="btn-contact" style="background: #25D366;">Solicitar vía WhatsApp</a>
+        <a href="#" onclick="terminar('email')" class="btn-contact" style="background: #ea4335;">Solicitar vía Correo Electrónico</a>
+    </div>
+</div>
+
+<script>
+    let paso = 0;
+    let memoria = { nombre: "", area: "", detalle: "", lugar: "", contacto: "" };
+
+    const chat = document.getElementById('chat-box');
+    const entrada = document.getElementById('user-input');
+    const typing = document.getElementById('typing');
+
+    function escribir(texto, quien) {
+        const div = document.createElement('div');
+        div.className = `msg ${quien}`;
+        div.innerHTML = texto;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function simularPensar(callback) {
+        typing.style.display = "block";
+        setTimeout(() => {
+            typing.style.display = "none";
+            callback();
+        }, 1500);
+    }
+
+    function procesar() {
+        const mensaje = entrada.value.trim();
+        if(!mensaje) return;
+
+        escribir(mensaje, 'user');
+        entrada.value = "";
+
+        if (paso === 0) {
+            memoria.nombre = mensaje;
+            simularPensar(() => {
+                escribir(`Mucho gusto, <b>${memoria.nombre}</b>. Cuénteme, ¿en qué área específica siente que su negocio necesita un impulso? (Contabilidad, Calidad, Capital Humano, creación de MIPYME...)`, 'bot');
+            });
+            paso++;
+        } 
+        else if (paso === 1) {
+            memoria.area = mensaje;
+            simularPensar(() => {
+                escribir(`Entiendo perfectamente, el área de <b>${mensaje}</b> es clave para el crecimiento. Para ser más precisos, ¿cuál es el principal reto o problema que enfrenta ahora mismo?`, 'bot');
+            });
+            paso++;
+        }
+        else if (paso === 2) {
+            memoria.detalle = mensaje;
+            simularPensar(() => {
+                escribir(`Comprendo la situación. En nuestro PDL tenemos experiencia con retos similares. ¿Desde qué municipio o provincia nos escribe?`, 'bot');
+            });
+            paso++;
+        }
+        else if (paso === 3) {
+            memoria.lugar = mensaje;
+            simularPensar(() => {
+                escribir(`Perfecto. Por último, ¿qué teléfono o correo electrónico podemos usar para enviarle la proforma de contrato y los detalles técnicos?`, 'bot');
+            });
+            paso++;
+        }
+        else if (paso === 4) {
+            memoria.contacto = mensaje;
+            simularPensar(() => {
+                escribir(`Ha sido un placer conversar con usted. He preparado un resumen con sus datos para que un especialista de nuestro equipo le atienda de forma personalizada.`, 'bot');
+                document.getElementById('input-section').style.display = "none";
+                document.getElementById('final-section').style.display = "block";
+            });
+        }
+    }
+
+    function terminar(via) {
+        let texto = `*DIAGNÓSTICO PREVIO - WINOBAD*%0A%0A`;
+        texto += `*Interesado:* ${memoria.nombre}%0A`;
+        texto += `*Servicio:* ${memoria.area}%0A`;
+        texto += `*Problema:* ${memoria.detalle}%0A`;
+        texto += `*Ubicación:* ${memoria.lugar}%0A`;
+        texto += `*Contacto:* ${memoria.contacto}`;
+
+        if(via === 'whatsapp') {
+            window.open(`https://wa.me/5356955208?text=${texto}`, '_blank');
+        } else {
+            const body = texto.replace(/%0A/g, '%0D%0A');
+            window.location.href = `mailto:winobadasociados@gmail.com?subject=Nueva Solicitud de Consultoría&body=${body}`;
+        }
+    }
+
+    entrada.addEventListener("keypress", (e) => { if(e.key === "Enter") procesar(); });
+</script>
+
+</body>
+</html>
