@@ -3,178 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Consultoría Inteligente</title>
+    <title>Winobad y Asociados | Consultoría Pro</title>
     <style>
-        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f8fafc; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--fondo); margin: 0; color: #1e293b; }
+        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--fondo); margin: 0; color: #333; }
         
-        header { background: var(--azul); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header { background: var(--azul); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
+        .logo { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; object-fit: contain; }
         
-        /* Ajuste para el Logo: Si falla, desaparece sin dejar rastro */
-        .logo { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; object-fit: contain; display: inline-block; }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
 
-        .container { max-width: 700px; margin: 25px auto; padding: 0 15px; }
-
-        section { background: var(--blanco); padding: 35px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 25px; display: none; animation: slideUp 0.4s ease-out; }
-        section.active { display: block; }
-
-        h2 { color: var(--azul); font-size: 1.5rem; margin-top: 0; border-left: 5px solid var(--dorado); padding-left: 15px; }
-        p { line-height: 1.7; color: #475569; }
-
-        .chat-bubble { background: #f1f5f9; padding: 18px; border-radius: 18px; border-bottom-left-radius: 4px; margin-bottom: 20px; font-weight: 500; border: 1px solid #e2e8f0; }
+        /* Tarjetas de Servicios */
+        .seccion { background: var(--blanco); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 20px; border-top: 4px solid var(--dorado); }
+        h2 { color: var(--azul); margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
         
-        input[type="text"], textarea { width: 100%; padding: 15px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; margin-bottom: 15px; box-sizing: border-box; transition: 0.3s; }
+        /* Botones de Categorías */
+        .grid-servicios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+        .btn-servicio { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 10px; cursor: pointer; text-align: left; transition: 0.3s; font-weight: 600; color: var(--azul); }
+        .btn-servicio:hover { background: var(--azul); color: white; border-color: var(--azul); }
 
-        .btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; border: none; border-radius: 14px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; margin-bottom: 10px; }
-        .btn-azul { background: var(--azul); color: white; }
-        .btn-outline { background: transparent; border: 2px solid var(--azul); color: var(--azul); }
-        .btn-ws { background: #25D366; color: white; }
+        /* Área de Diagnóstico Desplegable */
+        .diag-box { display: none; margin-top: 15px; padding: 20px; background: #fffdf5; border-radius: 12px; border: 1px dashed var(--dorado); animation: fadeIn 0.4s; }
+        .pregunta-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .pregunta-text { font-weight: 600; margin-bottom: 10px; display: block; font-size: 0.95rem; }
+        
+        .opciones-flex { display: flex; gap: 10px; }
+        .opc-btn { flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; cursor: pointer; font-size: 0.85rem; }
+        .opc-btn.selected { background: var(--dorado); color: var(--azul); border-color: var(--dorado); font-weight: bold; }
 
-        .opcion { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #f1f5f9; border-radius: 12px; cursor: pointer; text-align: left; background: white; font-size: 1rem; }
-        .badge-gratis { background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-
-        .progreso-container { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 30px; overflow: hidden; }
-        .barra { height: 100%; background: var(--dorado); width: 0%; transition: 0.5s; }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Footer y Contacto */
+        .panel-final { background: var(--azul); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-top: 30px; }
+        .btn-ws { background: #25D366; color: white; padding: 15px; border-radius: 10px; text-decoration: none; display: block; font-weight: bold; margin-top: 15px; font-size: 1.1rem; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 500px) { .grid-servicios { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Winobad" class="logo" id="main-logo" onerror="this.style.display='none';">
-    
-    <div style="font-weight: 800; font-size: 1.4rem; letter-spacing: -0.5px;">Winobad y Asociados</div>
-    <div style="color: var(--dorado); font-size: 0.85rem; font-weight: 600; margin-top: 5px;">CONSULTORÍA E INTELIGENCIA EMPRESARIAL</div>
+    <img src="logo.png" alt="Winobad" class="logo" onerror="this.style.display='none';">
+    <div style="font-weight: 800; font-size: 1.5rem;">Winobad y Asociados</div>
+    <div style="color: var(--dorado); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">SOLUCIONES INTEGRALES SEGÚN RES. 60/2011 CGR</div>
 </header>
 
 <div class="container">
     
-    <section id="paso1" class="active">
-        <h2>Atención Personalizada</h2>
-        <p>Bienvenido. Soy su consultor virtual de <b>Winobad y Asociados</b>. Somos un PDL enfocado en transformar negocios a través de la eficiencia y el cumplimiento normativo.</p>
-        <div class="chat-bubble">¿Cómo podemos ayudarle hoy? Antes de conversar con el equipo, me gustaría conocer su nombre o el de su entidad.</div>
-        <input type="text" id="nombre" placeholder="Nombre o Razón Social">
-        <button class="btn btn-azul" onclick="irAConversacion()">Continuar</button>
-    </section>
+    <div class="seccion">
+        <h2>Bienvenido a su Consultoría Digital</h2>
+        <p>Somos especialistas en el fortalecimiento de la base reglamentaria y operativa de su negocio. Seleccione un área para realizar un <b>diagnóstico gratuito</b> u obtener asistencia técnica inmediata.</p>
+        <input type="text" id="nombre_cliente" placeholder="Nombre o Razón Social (Obligatorio)" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; box-sizing:border-box;">
+    </div>
 
-    <section id="paso2">
-        <div class="chat-bubble">Un placer, <span id="nombre-span"></span>. Para ser más eficientes, ¿qué prefiere hacer ahora?</div>
-        
-        <div class="badge-gratis">RECOMENDADO Y GRATUITO</div>
-        <button class="btn btn-azul" onclick="iniciarDiagnostico()">Realizar Autodiagnóstico Integral</button>
-        <p style="font-size: 0.85rem; text-align: center; margin: 15px 0;">O si lo prefiere...</p>
-        <button class="btn btn-outline" onclick="irAContactoDirecto()">Saltar a Contacto Directo</button>
-    </section>
-
-    <section id="paso3">
-        <div class="progreso-container"><div class="barra" id="barra"></div></div>
-        <div id="quiz-area"></div>
-    </section>
-
-    <section id="paso4">
-        <h2>Finalizar Solicitud</h2>
-        <div id="resultado-diag" style="display: none; background: #f8fafc; padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
-            <div id="puntos-box" style="font-size: 2.5rem; font-weight: bold; color: var(--azul);">0%</div>
-            <p id="msg-diagnostico" style="margin: 5px 0; font-weight: 600;"></p>
+    <div class="seccion">
+        <h2>Nuestras Áreas de Servicio</h2>
+        <div class="grid-servicios">
+            <button class="btn-servicio" onclick="toggleDiag('contable')">📊 Contabilidad y Finanzas</button>
+            <button class="btn-servicio" onclick="toggleDiag('control')">🛡️ Control Interno</button>
+            <button class="btn-servicio" onclick="toggleDiag('capital')">👥 Capital Humano</button>
+            <button class="btn-servicio" onclick="toggleDiag('legal')">⚖️ Carpeta Legal y Logística</button>
         </div>
-        
-        <div class="chat-bubble">¿Cuál es el principal problema o necesidad que desea que resolvamos?</div>
-        <textarea id="problema-final" rows="3" placeholder="Ej: Necesito crear una MIPYME, tengo atraso contable, etc."></textarea>
-        
-        <p>Un especialista revisará su caso para preparar la <b>propuesta comercial y proforma de contrato</b>.</p>
-        
-        <button class="btn btn-ws" onclick="enviarReporte('whatsapp')">Enviar vía WhatsApp</button>
-        <button class="btn btn-azul" style="background: #ea4335;" onclick="enviarReporte('email')">Enviar por Correo</button>
-    </section>
 
+        <div id="diag-contable" class="diag-box">
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Posee procedimientos contables y base reglamentaria actualizada?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'cont_proc')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'cont_proc')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Utiliza un sistema automatizado contable eficiente?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'cont_auto')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'cont_auto')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Realiza análisis de razones financieras periódicamente?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'cont_razon')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'cont_razon')">No</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="diag-control" class="diag-box">
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Tiene implementado el Sistema de Control Interno (Res. 60)?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'sci_imp')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'sci_imp')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Cuenta con Fichas de Costo vigentes según normativa?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'sci_costo')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'sci_costo')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Ha diagnosticado sus documentos primarios recientemente?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'sci_prim')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'sci_prim')">No</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="diag-capital" class="diag-box">
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Tiene reglamentos disciplinarios y sistemas de pago definidos?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'ch_reg')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'ch_reg')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Posee registros de capital de trabajo actualizados?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'ch_cap')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'ch_cap')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Cumple con la Seguridad y Salud del Trabajo (SST)?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'ch_sst')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'ch_sst')">No</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="diag-legal" class="diag-box">
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Mantiene su Carpeta Legal organizada y actualizada?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'leg_carp')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'leg_carp')">No</button>
+                </div>
+            </div>
+            <div class="pregunta-item">
+                <span class="pregunta-text">¿Existe una logística de almacenes con control de inventario?</span>
+                <div class="opciones-flex">
+                    <button class="opc-btn" onclick="mark(this, 'leg_alm')">Sí</button>
+                    <button class="opc-btn" onclick="mark(this, 'leg_alm')">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-final">
+        <h3>¿Necesita una Proforma de Contrato?</h3>
+        <p>Al presionar el botón, se generará un reporte de sus respuestas para que nuestro equipo le envíe una oferta personalizada inmediata.</p>
+        <textarea id="obs" placeholder="Escriba aquí cualquier otro problema que desee resolver..." style="width:100%; border-radius:10px; padding:10px; margin-bottom:10px;"></textarea>
+        <a href="#" class="btn-ws" onclick="enviar()">Enviar Diagnóstico al Especialista</a>
+    </div>
+
+    <p style="text-align: center; color: #777; font-size: 0.8rem; margin: 30px 0;">PDL Winobad y Asociados | Ciego de Ávila, Cuba</p>
 </div>
 
 <script>
-    let score = 0;
-    let qIndex = 0;
-    let nombreC = "";
-    let realizoDiagnostico = false;
+    let respuestas = {};
 
-    const preguntas = [
-        { t: "Control Interno", q: "¿Posee un Sistema de Control Interno actualizado (Res. 60/11)?", ops: ["Sí, completo", "Parcial", "No tengo"], pts: [20, 10, 0] },
-        { t: "Contabilidad", q: "¿Su contabilidad refleja los costos reales de su producción?", ops: ["Sí, al día", "Estimados", "No llevo costos"], pts: [20, 10, 0] },
-        { t: "Capital Humano", q: "¿Tiene sus perfiles de cargo y contratos actualizados?", ops: ["Todos", "Solo algunos", "Ninguno"], pts: [20, 10, 0] },
-        { t: "Nuevos Actores", q: "¿Su negocio está legalmente constituido y al día con la ONAT?", ops: ["Todo en regla", "En trámites", "No constituido"], pts: [20, 5, 0] },
-        { t: "Calidad", q: "¿Maneja indicadores de calidad en sus procesos?", ops: ["Sí", "Muy pocos", "Ninguno"], pts: [20, 5, 0] }
-    ];
-
-    function cambiarSec(actual, siguiente) {
-        document.getElementById('paso'+actual).classList.remove('active');
-        document.getElementById('paso'+siguiente).classList.add('active');
-        window.scrollTo(0,0);
+    function toggleDiag(id) {
+        const box = document.getElementById('diag-' + id);
+        const boxes = document.querySelectorAll('.diag-box');
+        boxes.forEach(b => { if(b.id !== 'diag-'+id) b.style.display = 'none'; }); // Cierra otros para no abrumar
+        box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    function irAConversacion() {
-        nombreC = document.getElementById('nombre').value;
-        if(!nombreC) { alert("Por favor, ingrese su nombre."); return; }
-        document.getElementById('nombre-span').innerText = nombreC;
-        cambiarSec(1, 2);
+    function mark(btn, categoria) {
+        const siblings = btn.parentElement.querySelectorAll('.opc-btn');
+        siblings.forEach(s => s.classList.remove('selected'));
+        btn.classList.add('selected');
+        respuestas[categoria] = btn.innerText;
     }
 
-    function irAContactoDirecto() {
-        realizoDiagnostico = false;
-        cambiarSec(2, 4);
-    }
+    function enviar() {
+        const nombre = document.getElementById('nombre_cliente').value;
+        const obs = document.getElementById('obs').value;
+        if(!nombre) { alert("Por favor, ingrese su nombre para personalizar su contrato."); return; }
 
-    function iniciarDiagnostico() {
-        realizoDiagnostico = true;
-        cambiarSec(2, 3);
-        mostrarQ();
-    }
-
-    function mostrarQ() {
-        if(qIndex < preguntas.length) {
-            let p = preguntas[qIndex];
-            let html = `<div class="badge-gratis">${p.t}</div><h2>${p.q}</h2>`;
-            p.ops.forEach((op, i) => {
-                html += `<button class="opcion" onclick="responder(${p.pts[i]})">${op}</button>`;
-            });
-            document.getElementById('quiz-area').innerHTML = html;
-            document.getElementById('barra').style.width = (qIndex * 20) + "%";
-        } else {
-            finalizarQ();
+        let reporte = `*NUEVO DIAGNÓSTICO - WINOBAD*%0A`;
+        reporte += `*Cliente:* ${nombre}%0A%0A`;
+        reporte += `*RESPUESTAS CLAVE:*%0A`;
+        
+        for (let key in respuestas) {
+            reporte += `- ${key}: ${respuestas[key]}%0A`;
         }
-    }
 
-    function responder(p) {
-        score += p;
-        qIndex++;
-        mostrarQ();
-    }
+        if(obs) reporte += `%0A*Observaciones:* ${obs}`;
+        reporte += `%0A%0A_Solicito proforma de contrato basada en este perfil._`;
 
-    function finalizarQ() {
-        cambiarSec(3, 4);
-        document.getElementById('resultado-diag').style.display = "block";
-        document.getElementById('puntos-box').innerText = score + "%";
-        let msg = score >= 80 ? "Nivel Óptimo." : (score >= 50 ? "Riesgo Moderado." : "ESTADO CRÍTICO.");
-        document.getElementById('msg-diagnostico').innerText = msg;
-    }
-
-    function enviarReporte(via) {
-        const prob = document.getElementById('problema-final').value;
-        if(!prob) { alert("Por favor, describa su necesidad."); return; }
-
-        let texto = `*CONSULTORÍA WINOBAD*%0A*Cliente:* ${nombreC}%0A*Necesidad:* ${prob}%0A`;
-        if(realizoDiagnostico) texto += `*Diagnóstico Gratuito:* ${score}/100%0A`;
-        texto += `%0A_Solicito oferta comercial y proforma de contrato._`;
-
-        if(via === 'whatsapp') {
-            window.open(`https://wa.me/5356955208?text=${texto}`, '_blank');
-        } else {
-            const body = texto.replace(/%0A/g, '%0D%0A');
-            window.location.href = `mailto:winobadasociados@gmail.com?subject=Solicitud Winobad&body=${body}`;
-        }
+        window.open(`https://wa.me/5356955208?text=${reporte}`, '_blank');
     }
 </script>
 
 </body>
 </html>
+  
     
 
   
