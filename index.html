@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Portal de Servicios</title>
+    <title>Winobad y Asociados | Catálogo Completo Anexo 4</title>
     <style>
         :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; line-height: 1.5; }
         header { background: var(--azul); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        .container { max-width: 950px; margin: 20px auto; padding: 0 20px; }
         section { background: var(--blanco); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--dorado); }
         h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; font-size: 1.3rem; margin-top: 0; }
-        h3 { color: var(--azul); font-size: 0.95rem; margin: 15px 0 10px; background: #f1f5f9; padding: 8px; border-radius: 5px; text-transform: uppercase; }
+        h3 { color: var(--azul); font-size: 0.9rem; margin: 15px 0 10px; background: #f1f5f9; padding: 8px; border-radius: 5px; text-transform: uppercase; }
         
-        /* Acordeón Servicios Anexo 4 */
         .btn-concepto { width: 100%; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-concepto:hover { background: #f1f5f9; border-color: var(--dorado); }
         .panel-servicios { display: none; padding: 10px 20px; background: #fff; border: 1px solid #f1f5f9; border-radius: 0 0 12px 12px; margin-bottom: 15px; }
         
-        .srv-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer; }
+        .srv-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #eee; cursor: pointer; }
         .srv-item:last-child { border-bottom: none; }
         .srv-item input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--azul); }
         .srv-info b { font-size: 0.85rem; color: #444; display: block; }
         .srv-info span { font-size: 0.7rem; color: var(--dorado); font-weight: bold; }
 
-        /* Diagnóstico Resolución 60/11 */
         .diag-box { margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #f0f0f0; }
         .diag-box p { margin: 0 0 10px 0; font-size: 0.9rem; font-weight: 600; }
         .btn-group { display: flex; gap: 10px; }
@@ -40,84 +37,141 @@
 
 <header>
     <div style="font-weight: 800; font-size: 1.6rem;">WINOBAD Y ASOCIADOS</div>
-    <div style="color: var(--dorado); font-size: 0.8rem; font-weight: bold;">SERVICIOS PROFESIONALES ESTRATÉGICOS</div>
+    <div style="color: var(--dorado); font-size: 0.8rem; font-weight: bold;">PORTAL DE CONTRATACIÓN - ANEXO 4</div>
 </header>
 
 <div class="container">
     
     <section>
-        <h2>Datos de la Entidad</h2>
-        <input type="text" id="entidad" placeholder="Nombre de la Entidad o Actor Económico *">
+        <h2>Identificación de la Entidad</h2>
+        <input type="text" id="entidad" placeholder="Nombre de la Entidad / MIPYME / TCP *">
         <input type="tel" id="whatsapp" placeholder="Teléfono / WhatsApp de contacto *">
     </section>
 
     <section>
-        <h2>Servicios Profesionales (Anexo No. 4)</h2>
-        
-        <button class="btn-concepto" onclick="toggle('c1')">Sistemas de Gestión Automatizados <span>▼</span></button>
-        <div id="c1" class="panel-servicios">
+        <h2>Servicios Profesionales (100% Anexo 4)</h2>
+
+        <button class="btn-concepto" onclick="toggle('c1000')">1000 - Implementación de Sistemas <span>▼</span></button>
+        <div id="c1000" class="panel-servicios">
             <label class="srv-item"><input type="checkbox" class="check-srv" value="1001-Nóminas"><div class="srv-info"><span>1001</span><b>Implementación de módulo de nóminas</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="1003-Contabilidad"><div class="srv-info"><span>1003</span><b>Implementación, configuración y contabilidad</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="1002-Capacitación"><div class="srv-info"><span>1002</span><b>Implementación y capacitación módulos completos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="1003-Contabilidad"><div class="srv-info"><span>1003</span><b>Configuración y Contabilidad</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="1004-Finanzas"><div class="srv-info"><span>1004</span><b>Implementación módulo finanzas</b></div></label>
             <label class="srv-item"><input type="checkbox" class="check-srv" value="1005-Inventarios"><div class="srv-info"><span>1005</span><b>Implementación módulo inventarios</b></div></label>
             <label class="srv-item"><input type="checkbox" class="check-srv" value="1006-Facturación"><div class="srv-info"><span>1006</span><b>Implementación módulo facturación</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="2000-Soporte"><div class="srv-info"><span>2000</span><b>Carga inicial y soporte técnico del sistema</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="1007-AFT"><div class="srv-info"><span>1007</span><b>Implementación módulo Activos Fijos Tangibles</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="1008-Versat PV"><div class="srv-info"><span>1008</span><b>Implementación Versat puntos de venta</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="2000-Soporte"><div class="srv-info"><span>2000</span><b>Carga inicial y soporte técnico (1001-1006)</b></div></label>
         </div>
 
-        <button class="btn-concepto" onclick="toggle('c2')">Asesoría Contable y Financiera <span>▼</span></button>
-        <div id="c2" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="3000-EEFF"><div class="srv-info"><span>3000</span><b>Elaboración de Estados Financieros (Mensual)</b></div></label>
+        <button class="btn-concepto" onclick="toggle('c3000')">3000/4000 - Asesoría Contable y Financiera <span>▼</span></button>
+        <div id="c3000" class="panel-servicios">
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="3000-EEFF"><div class="srv-info"><span>3000</span><b>Elaboración de Estados Financieros</b></div></label>
             <label class="srv-item"><input type="checkbox" class="check-srv" value="4000-Asesoría Nóminas"><div class="srv-info"><span>4000</span><b>Asesoría en subsistema de nóminas</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4001-Asesoría Inventarios"><div class="srv-info"><span>4001</span><b>Asesoría en subsistema de inventarios</b></div></label>
             <label class="srv-item"><input type="checkbox" class="check-srv" value="4002-Asesoría Contabilidad"><div class="srv-info"><span>4002</span><b>Asesoría en subsistema de contabilidad</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="4006-Asesoría EEFF"><div class="srv-info"><span>4006</span><b>Asesoría en la elaboración de estados financieros</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="8016-Teneduría"><div class="srv-info"><span>8016</span><b>Teneduría de libros y registros contables</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4003-Asesoría Facturación"><div class="srv-info"><span>4003</span><b>Asesoría en facturación y puntos de venta</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4004-Asesoría Finanzas"><div class="srv-info"><span>4004</span><b>Asesoría en subsistema de finanzas</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4005-Asesoría AFT"><div class="srv-info"><span>4005</span><b>Asesoría en subsistema de activos fijos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4006-Asesoría Elaboración EEFF"><div class="srv-info"><span>4006</span><b>Asesoría elaboración estados financieros</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="4007-Iguala 4000"><div class="srv-info"><span>4007</span><b>Iguala mensual: Todos los servicios 4000</b></div></label>
         </div>
 
-        <button class="btn-concepto" onclick="toggle('c3')">Gestión de Recursos Humanos <span>▼</span></button>
-        <div id="c3" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="5000-Diag RRHH"><div class="srv-info"><span>5000</span><b>Diagnóstico de la actividad de Capital Humano</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="5002-Expedientes"><div class="srv-info"><span>5002</span><b>Elaboración y completamiento de expedientes laborales</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="5005-SST"><div class="srv-info"><span>5005</span><b>Sistema de Seguridad y Salud del Trabajo (SST)</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="5008-Contratos Lab"><div class="srv-info"><span>5008</span><b>Gestión y elaboración de contratos laborales</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="7001-Reglamento"><div class="srv-info"><span>7001</span><b>Reglamento disciplinario y Convenio Colectivo</b></div></label>
+        <button class="btn-concepto" onclick="toggle('c5000')">5000 - Capital Humano y RRHH <span>▼</span></button>
+        <div id="c5000" class="panel-servicios">
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5000-Diag RRHH"><div class="srv-info"><span>5000</span><b>Diagnóstico actividad de Capital Humano</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5001-Pre-Nóminas"><div class="srv-info"><span>5001</span><b>Sistema de pre-nóminas y nóminas</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5002-Expedientes"><div class="srv-info"><span>5002</span><b>Elaboración y completamiento de expedientes</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5003-Subsidios"><div class="srv-info"><span>5003</span><b>Elaboración de subsidios y movimientos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5004-Seguridad Social"><div class="srv-info"><span>5004</span><b>Tramitación de SS y Jubilaciones</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5005-SST"><div class="srv-info"><span>5005</span><b>Sistema de Seguridad y Salud del Trabajo</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5006-Vacaciones"><div class="srv-info"><span>5006</span><b>Plan de vacaciones</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5007-Tarjetas Salario"><div class="srv-info"><span>5007</span><b>Tarjetas de salario y tiempo retribuido</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5008-Contratos Lab"><div class="srv-info"><span>5008</span><b>Gestión de contratos laborales</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5009-Perfiles"><div class="srv-info"><span>5009</span><b>Elaboración de perfiles de competencia</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="5010-Iguala RRHH"><div class="srv-info"><span>5010</span><b>Iguala mensual: Servicios 5001-5009</b></div></label>
         </div>
 
-        <button class="btn-concepto" onclick="toggle('c4')">Gestión, Calidad y Legalización <span>▼</span></button>
-        <div id="c4" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="6002-Inocuidad"><div class="srv-info"><span>6002</span><b>Inocuidad de alimentos y Licencia Sanitaria</b></div></label>
+        <button class="btn-concepto" onclick="toggle('c6000')">6000 - Gestión de Calidad e Inocuidad <span>▼</span></button>
+        <div id="c6000" class="panel-servicios">
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6001-Calidad"><div class="srv-info"><span>6001</span><b>Gestión integral de calidad</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6002-Inocuidad"><div class="srv-info"><span>6002</span><b>Inocuidad de alimentos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6003-BPP"><div class="srv-info"><span>6003</span><b>Buenas prácticas de producción</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6004-Lic Sanitaria"><div class="srv-info"><span>6004</span><b>Gestión de licencia sanitaria</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6005-Lic Ambiental"><div class="srv-info"><span>6005</span><b>Gestión de licencia ambiental</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6006-Reg Sanitario"><div class="srv-info"><span>6006</span><b>Trámite en Registro Sanitario Nacional</b></div></label>
             <label class="srv-item"><input type="checkbox" class="check-srv" value="6007-Marca"><div class="srv-info"><span>6007</span><b>Registro de marca y logotipo</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="8004-Control Interno"><div class="srv-info"><span>8004</span><b>Implementación de Sistema de Control Interno</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="8013-Legalización"><div class="srv-info"><span>8013</span><b>Legalización de actualizaciones (MIPYMES, PDL)</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="8017-Diag Org"><div class="srv-info"><span>8017</span><b>Diagnóstico organizacional y gestión empresarial</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6008-RNPA"><div class="srv-info"><span>6008</span><b>Registro Nacional de Productores de Alimentos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6009-Implementar BPP"><div class="srv-info"><span>6009</span><b>Implementar buenas prácticas de producción</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="6010-SGC"><div class="srv-info"><span>6010</span><b>Implementar sistema de gestión calidad</b></div></label>
+        </div>
+
+        <button class="btn-concepto" onclick="toggle('c7000')">7000 - Reglamentos y Procedimientos <span>▼</span></button>
+        <div id="c7000" class="panel-servicios">
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7001-Disciplinario"><div class="srv-info"><span>7001</span><b>Reglamento disciplinario</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7002-Convenio"><div class="srv-info"><span>7002</span><b>Convenio Colectivo</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7003-Dirección"><div class="srv-info"><span>7003</span><b>Reglamentos órganos de dirección</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7004-Proc Nómina"><div class="srv-info"><span>7004</span><b>Procedimiento subsistema Nómina</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7005-Proc AFT"><div class="srv-info"><span>7005</span><b>Procedimiento subsistema AFT</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7006-Proc Inventario"><div class="srv-info"><span>7006</span><b>Procedimiento subsistema Inventario</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7007-Proc Banco"><div class="srv-info"><span>7007</span><b>Procedimiento subsistema Caja y Banco</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7008-Proc Planificación"><div class="srv-info"><span>7008</span><b>Procedimiento subsistema Planificación</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7009-Proc Contabilidad"><div class="srv-info"><span>7009</span><b>Procedimiento subsistema Contabilidad</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7010-Proc Cierre"><div class="srv-info"><span>7010</span><b>Procedimiento cierre contable</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7011-Proc Ajustes"><div class="srv-info"><span>7011</span><b>Procedimiento ajustes inventarios</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7012-Proc Cobrar"><div class="srv-info"><span>7012</span><b>Procedimiento cuentas por cobrar</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7013-Proc Pagar"><div class="srv-info"><span>7013</span><b>Procedimiento cuentas por pagar</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7014-Proc Prod"><div class="srv-info"><span>7014</span><b>Procedimiento control procesos productivos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7015-Proc Combustible"><div class="srv-info"><span>7015</span><b>Procedimiento subsistema Combustible</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7016-Proc SST"><div class="srv-info"><span>7016</span><b>Procedimiento Seguridad y Salud (SST)</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7017-Proc Cap Humano"><div class="srv-info"><span>7017</span><b>Procedimiento de Capital Humano</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7018-Proc Ingreso"><div class="srv-info"><span>7018</span><b>Contratación e ingresos (período prueba)</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7019-Proc Cargos"><div class="srv-info"><span>7019</span><b>Creación de nuevos cargos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="7020-Proc Riesgos"><div class="srv-info"><span>7020</span><b>Identificación de riesgos laborales</b></div></label>
+        </div>
+
+        <button class="btn-concepto" onclick="toggle('c8000')">8000 - Gestión Empresarial y Legal <span>▼</span></button>
+        <div id="c8000" class="panel-servicios">
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8001-Proc Contables"><div class="srv-info"><span>8001</span><b>Elaboración de procedimientos contables</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8002-Proc RRHH"><div class="srv-info"><span>8002</span><b>Elaboración proc. Capital Humano</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8003-Impl RRHH"><div class="srv-info"><span>8003</span><b>Implementación actividad general RRHH</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8004-Impl Control Int"><div class="srv-info"><span>8004</span><b>Implementación Sistema Control Interno</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8005-Ases Control Int"><div class="srv-info"><span>8005</span><b>Asesoría en implementación de SCI</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8006-Control Inv"><div class="srv-info"><span>8006</span><b>Realización control inventarios (10-100%)</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8007-Diag Contable"><div class="srv-info"><span>8007</span><b>Diagnóstico de gestión contable</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8008-Fichas Costo"><div class="srv-info"><span>8008</span><b>Elaboración de fichas de costos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8009-Diag Gestión"><div class="srv-info"><span>8009</span><b>Diagnóstico gestión (contratación)</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8010-Ases Contratos"><div class="srv-info"><span>8010</span><b>Asesoría y elaboración de contratos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8011-Iguala 8009-11"><div class="srv-info"><span>8011</span><b>Iguala mensual: Servicios 8009-8011</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8012-Act Constitución"><div class="srv-info"><span>8012</span><b>Actualización documentos constitución</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8013-Legalización"><div class="srv-info"><span>8013</span><b>Legalización actualizaciones actores económicos</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8014-Docum"><div class="srv-info"><span>8014</span><b>Gestión y tramitación documental</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8015-Fusión"><div class="srv-info"><span>8015</span><b>Creación, fusión o disolución entidad</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8016-Teneduría"><div class="srv-info"><span>8016</span><b>Teneduría de libros y registros</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8017-Diag Org"><div class="srv-info"><span>8017</span><b>Diagnóstico organizacional</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="8018-Factibilidad"><div class="srv-info"><span>8018</span><b>Estudio de factibilidad</b></div></label>
         </div>
     </section>
 
     <section>
-        <h2>Diagnóstico Resolución 60/11</h2>
-        <h3>I. Ambiente de Control</h3>
-        <div class="diag-box"><p>¿Posee manuales de cargos y reglamentos actualizados?</p>
+        <h2>Autodiagnóstico (Res. 60/11 CGR)</h2>
+        <div class="diag-box"><p>1. ¿Posee Ambiente de Control (Manuales, Carpeta Legal, Reglamentos)?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Ambiente')">Sí</button><button class="btn-diag" onclick="sd(this,'Ambiente')">No</button></div>
         </div>
-        <h3>II. Gestión de Riesgos</h3>
-        <div class="diag-box"><p>¿Tiene elaborado su Plan de Prevención de Riesgos?</p>
+        <div class="diag-box"><p>2. ¿Tiene identificado su Plan de Prevención de Riesgos?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Riesgos')">Sí</button><button class="btn-diag" onclick="sd(this,'Riesgos')">No</button></div>
         </div>
-        <h3>III. Actividades de Control</h3>
-        <div class="diag-box"><p>¿Utiliza software contable y realiza inventarios periódicos?</p>
+        <div class="diag-box"><p>3. ¿Realiza actividades de control (Arqueos, Inventarios periódicos)?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Control')">Sí</button><button class="btn-diag" onclick="sd(this,'Control')">No</button></div>
         </div>
-        <h3>IV. Información y Comunicación</h3>
-        <div class="diag-box"><p>¿Sus estados financieros se presentan en tiempo a la dirección?</p>
+        <div class="diag-box"><p>4. ¿Fluye la Información y Comunicación hacia la dirección?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Info')">Sí</button><button class="btn-diag" onclick="sd(this,'Info')">No</button></div>
-        </div>
-        <h3>V. Supervisión y Monitoreo</h3>
-        <div class="diag-box"><p>¿Realiza autoevaluaciones periódicas de su gestión?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Superv')">Sí</button><button class="btn-diag" onclick="sd(this,'Superv')">No</button></div>
         </div>
     </section>
 
     <section>
         <h2>Descripción del Problema</h2>
-        <textarea id="problema" rows="4" placeholder="Describa brevemente la situación de su entidad..."></textarea>
+        <textarea id="problema" rows="4" placeholder="Ej: Necesito legalizar una actualización de mi MIPYME y organizar los expedientes..."></textarea>
         <a href="#" class="btn-enviar" onclick="enviar()">ENVIAR SOLICITUD POR WHATSAPP</a>
     </section>
 
@@ -144,9 +198,9 @@
         if(!ent || !tel) { alert("Complete los datos de contacto."); return; }
         let srvs = [];
         document.querySelectorAll('.check-srv:checked').forEach(c => srvs.push(c.value));
-        let msg = `*SOLICITUD WINOBAD*%0A*ENTIDAD:* ${ent}%0A*TEL:* ${tel}%0A%0A*SERVICIOS:*%0A${srvs.join('%0A') || 'Consulta'}%0A%0A*DIAGNÓSTICO RES. 60:*%0A`;
+        let msg = `*SOLICITUD WINOBAD*%0A*CLIENTE:* ${ent}%0A*TEL:* ${tel}%0A%0A*SERVICIOS SELECCIONADOS:*%0A${srvs.join('%0A') || 'Consulta General'}%0A%0A*ESTADO CONTROL:*%0A`;
         for(let k in diag) { msg += `• ${k}: ${diag[k]}%0A`; }
-        if(prob) msg += `%0A*PROBLEMA:* ${prob}`;
+        if(prob) msg += `%0A*SITUACIÓN:* ${prob}`;
         window.open(`https://wa.me/5356955208?text=${msg}`, '_blank');
     }
 </script>
