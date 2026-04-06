@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Suite Profesional</title>
+    <title>Winobad y Asociados | Catálogo Integral Anexo 4</title>
     <style>
         :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--fondo); margin: 0; color: #333; }
         
         header { background: var(--azul); color: white; padding: 40px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
         .logo { width: 85px; height: 85px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 12px; object-fit: contain; }
@@ -17,167 +17,183 @@
 
         h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; font-size: 1.4rem; margin-top: 0; }
         
-        /* Formulario */
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; }
+        /* Botones de Conceptos Generales */
+        .btn-concepto { width: 100%; padding: 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .btn-concepto:hover { background: #f1f5f9; border-color: var(--dorado); }
+        .btn-concepto.active { border-bottom-left-radius: 0; border-bottom-right-radius: 0; background: #e2e8f0; }
 
-        /* Acordeón Anexo 4 - Estilo Profesional */
-        .p-concepto { width: 100%; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .p-concepto:hover { background: #f1f5f9; border-color: var(--dorado); }
-        .p-desplegable { display: none; padding: 10px 20px; background: #fff; border: 1px solid #f1f5f9; border-radius: 0 0 12px 12px; margin-bottom: 15px; }
+        /* Contenedor de Servicios Específicos (100% Anexo 4) */
+        .panel-servicios { display: none; padding: 15px 25px; background: #fff; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px; margin-bottom: 15px; }
 
-        .srv-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer; }
-        .srv-item:last-child { border-bottom: none; }
-        .srv-item input { width: 18px; height: 18px; margin-top: 3px; }
-        .srv-info b { font-size: 0.95rem; color: #444; display: block; }
-        .srv-info span { font-size: 0.75rem; color: var(--dorado); font-weight: bold; }
+        .srv-check-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+        .srv-check-item:last-child { border-bottom: none; }
+        .srv-check-item input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--azul); }
+        .srv-desc b { display: block; color: #1e293b; font-size: 0.95rem; line-height: 1.3; }
+        .srv-desc span { font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase; }
 
-        /* Diagnóstico Res 60 por Componentes */
-        .comp-header { background: var(--azul); color: white; padding: 8px 15px; border-radius: 5px; font-size: 0.9rem; margin: 15px 0 10px; }
-        .preg-box { margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #f0f0f0; }
-        .preg-box p { margin: 0 0 10px 0; font-size: 0.9rem; font-weight: 600; }
-        .btn-group { display: flex; gap: 8px; }
-        .btn-diag { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer; font-size: 0.85rem; }
-        .btn-diag.active { background: var(--azul); color: white; font-weight: bold; }
+        /* Diagnóstico Res 60 */
+        .comp-box { background: #f1f5f9; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin: 20px 0 10px; color: var(--azul); }
+        .preg-item { padding: 10px; border-bottom: 1px solid #eee; }
+        .preg-item p { margin: 0 0 10px 0; font-size: 0.95rem; }
+        .group-btns { display: flex; gap: 10px; }
+        .btn-opt { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: white; cursor: pointer; font-weight: 600; }
+        .btn-opt.active { background: var(--azul); color: white; }
 
-        .btn-final { background: #25D366; color: white; display: block; text-align: center; padding: 20px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.3rem; margin-top: 20px; }
+        .btn-enviar { background: #25D366; color: white; display: block; text-align: center; padding: 22px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.4rem; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
 <header>
     <img src="logo.png" alt="Winobad" class="logo" onerror="this.style.display='none';">
-    <div style="font-weight: 800; font-size: 1.7rem;">WINOBAD Y ASOCIADOS</div>
-    <div class="sub-header">Servicios Pro y Diagnóstico de Control Interno</div>
+    <div style="font-weight: 800; font-size: 1.8rem;">WINOBAD Y ASOCIADOS</div>
+    <div class="sub-header">Portafolio Oficial y Control Interno</div>
 </header>
 
 <div class="container">
     
     <section>
-        <h2>Identificación del Cliente</h2>
-        <input type="text" id="nombre" placeholder="Nombre o Razón Social *" style="margin-bottom:10px;">
-        <div class="form-grid">
-            <input type="email" id="email" placeholder="Correo Electrónico *">
-            <input type="tel" id="tel" placeholder="Teléfono / WhatsApp *">
+        <h2>Información de la Entidad</h2>
+        <input type="text" id="entidad" placeholder="Nombre de la Entidad / Actor Económico *" style="width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; margin-bottom:15px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <input type="email" id="correo" placeholder="Email *" style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+            <input type="tel" id="whatsapp" placeholder="WhatsApp / Teléfono *" style="padding:12px; border-radius:10px; border:1px solid #ccc;">
         </div>
     </section>
 
     <section>
-        <h2>Portafolio de Servicios (Anexo No. 4)</h2>
-        <p style="font-size: 0.85rem; color: #666;">Seleccione los servicios específicos de su interés:</p>
+        <h2>Servicios Profesionales (Anexo No. 4)</h2>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Explore nuestros servicios por categoría y seleccione los de su interés:</p>
 
-        <button class="p-concepto" onclick="toggle('c1')">Legalización de Actores Económicos <span>▼</span></button>
-        <div id="c1" class="p-desplegable">
-            <label class="srv-item">
-                <input type="checkbox" class="srv-check" value="Legalización de actualizaciones (8013)">
-                <div class="srv-info"><span>CÓD: 8013</span><b>Legalización de actualizaciones en la constitución de actores económicos (MIPYMES, PDL, TCP)</b></div>
+        <button class="btn-concepto" onclick="openSrv('srv1', this)">Legalización de Actores Económicos <span>▼</span></button>
+        <div id="srv1" class="panel-servicios">
+            <label class="srv-check-item">
+                <input type="checkbox" class="check-srv" value="Legalización de actualizaciones (8013)">
+                <div class="srv-desc"><span>CÓDIGO: 8013</span><b>Legalización de actualizaciones en la constitución de actores económicos (MIPYMES, PDL, TCP)</b></div>
             </label>
         </div>
 
-        <button class="p-concepto" onclick="toggle('c2')">Gestión y Actividad Documental <span>▼</span></button>
-        <div id="c2" class="p-desplegable">
-            <label class="srv-item">
-                <input type="checkbox" class="srv-check" value="Gestión y tramitación documental (8014)">
-                <div class="srv-info"><span>CÓD: 8014</span><b>Gestión, tramitación e implementación de la actividad documental</b></div>
+        <button class="btn-concepto" onclick="openSrv('srv2', this)">Gestión Documental <span>▼</span></button>
+        <div id="srv2" class="panel-servicios">
+            <label class="srv-check-item">
+                <input type="checkbox" class="check-srv" value="Gestión y tramitación documental (8014)">
+                <div class="srv-desc"><span>CÓDIGO: 8014</span><b>Gestión, tramitación e implementación de la actividad documental</b></div>
             </label>
         </div>
 
-        <button class="p-concepto" onclick="toggle('c3')">Movimientos Organizativos <span>▼</span></button>
-        <div id="c3" class="p-desplegable">
-            <label class="srv-item">
-                <input type="checkbox" class="srv-check" value="Creación, fusión o disolución (8015)">
-                <div class="srv-info"><span>CÓD: 8015</span><b>Creación, fusión o disolución de una entidad</b></div>
+        <button class="btn-concepto" onclick="openSrv('srv3', this)">Movimientos Organizativos <span>▼</span></button>
+        <div id="srv3" class="panel-servicios">
+            <label class="srv-check-item">
+                <input type="checkbox" class="check-srv" value="Creación, fusión o disolución (8015)">
+                <div class="srv-desc"><span>CÓDIGO: 8015</span><b>Creación, fusión o disolución de una entidad</b></div>
             </label>
         </div>
 
-        <button class="p-concepto" onclick="toggle('c4')">Teneduría de Libros <span>▼</span></button>
-        <div id="c4" class="p-desplegable">
-            <label class="srv-item">
-                <input type="checkbox" class="srv-check" value="Teneduría de libros (8016)">
-                <div class="srv-info"><span>CÓD: 8016</span><b>Teneduría de libros y registros contables mensuales</b></div>
+        <button class="btn-concepto" onclick="openSrv('srv4', this)">Teneduría de Libros <span>▼</span></button>
+        <div id="srv4" class="panel-servicios">
+            <label class="srv-check-item">
+                <input type="checkbox" class="check-srv" value="Teneduría de libros (8016)">
+                <div class="srv-desc"><span>CÓDIGO: 8016</span><b>Teneduría de libros y registros contables mensuales</b></div>
             </label>
         </div>
 
-        <button class="p-concepto" onclick="toggle('c5')">Gestión Empresarial <span>▼</span></button>
-        <div id="c5" class="p-desplegable">
-            <label class="srv-item">
-                <input type="checkbox" class="srv-check" value="Diagnóstico organizacional (8017)">
-                <div class="srv-info"><span>CÓD: 8017</span><b>Diagnóstico organizacional y gestión empresarial</b></div>
+        <button class="btn-concepto" onclick="openSrv('srv5', this)">Gestión Empresarial <span>▼</span></button>
+        <div id="srv5" class="panel-servicios">
+            <label class="srv-check-item">
+                <input type="checkbox" class="check-srv" value="Diagnóstico organizacional (8017)">
+                <div class="srv-desc"><span>CÓDIGO: 8017</span><b>Diagnóstico organizacional y gestión empresarial</b></div>
             </label>
         </div>
     </section>
 
     <section>
-        <h2>Diagnóstico de Control Interno (Res. 60/2011)</h2>
+        <h2>Diagnóstico de Control Interno (Res. 60/2011 CGR)</h2>
         
-        <div class="comp-header">I. AMBIENTE DE CONTROL (RRHH, Legal, Ética)</div>
-        <div class="preg-box">
-            <p>¿Cuenta con Manual de Cargos, Carpeta Legal organizada y Reglamentos Disciplinarios actualizados?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Ambiente')">Sí</button><button class="btn-diag" onclick="sd(this,'Ambiente')">No</button></div>
+        <div class="comp-box">I. AMBIENTE DE CONTROL</div>
+        <div class="preg-item">
+            <p>¿Posee Carpeta Legal, Manual de Cargos y Reglamentos Disciplinarios actualizados?</p>
+            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Ambiente')">Sí</button><button class="btn-opt" onclick="setD(this,'Ambiente')">No</button></div>
         </div>
 
-        <div class="comp-header">II. GESTIÓN Y PREVENCIÓN DE RIESGOS</div>
-        <div class="preg-box">
-            <p>¿Tiene elaborado el Plan de Prevención de Riesgos y el mapa de riesgos por subsistemas?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Riesgos')">Sí</button><button class="btn-diag" onclick="sd(this,'Riesgos')">No</button></div>
+        <div class="comp-box">II. GESTIÓN Y PREVENCIÓN DE RIESGOS</div>
+        <div class="preg-item">
+            <p>¿Tiene elaborado el Plan de Prevención de Riesgos y su mapa correspondiente?</p>
+            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Riesgos')">Sí</button><button class="btn-opt" onclick="setD(this,'Riesgos')">No</button></div>
         </div>
 
-        <div class="comp-header">III. ACTIVIDADES DE CONTROL (Contabilidad, Almacenes)</div>
-        <div class="preg-box">
-            <p>¿Utiliza software contable automatizado y tiene control estricto sobre documentos primarios e inventarios?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Control')">Sí</button><button class="btn-diag" onclick="sd(this,'Control')">No</button></div>
+        <div class="comp-box">III. ACTIVIDADES DE CONTROL</div>
+        <div class="preg-item">
+            <p>¿Utiliza software contable y tiene control de inventarios y documentos primarios?</p>
+            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Control')">Sí</button><button class="btn-opt" onclick="setD(this,'Control')">No</button></div>
         </div>
 
-        <div class="comp-header">IV. INFORMACIÓN Y COMUNICACIÓN</div>
-        <div class="preg-box">
-            <p>¿Fluyen los estados financieros y reportes de gestión oportunamente hacia la dirección?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Info')">Sí</button><button class="btn-diag" onclick="sd(this,'Info')">No</button></div>
+        <div class="comp-box">IV. INFORMACIÓN Y COMUNICACIÓN</div>
+        <div class="preg-item">
+            <p>¿Los estados financieros y reportes fluyen oportunamente hacia la gerencia?</p>
+            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Info')">Sí</button><button class="btn-opt" onclick="setD(this,'Info')">No</button></div>
         </div>
 
-        <div class="comp-header">V. SUPERVISIÓN Y MONITOREO</div>
-        <div class="preg-box">
-            <p>¿Realiza autoevaluaciones de control interno para medir la eficiencia y eficacia empresarial?</p>
-            <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Superv')">Sí</button><button class="btn-diag" onclick="sd(this,'Superv')">No</button></div>
+        <div class="comp-box">V. SUPERVISIÓN Y MONITOREO</div>
+        <div class="preg-item">
+            <p>¿Realiza chequeos periódicos de la eficacia de su sistema de control?</p>
+            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Superv')">Sí</button><button class="btn-opt" onclick="setD(this,'Superv')">No</button></div>
         </div>
     </section>
 
     <section>
-        <h2>Descripción de Necesidades</h2>
-        <textarea id="prob" rows="3" placeholder="Detalle su situación específica..."></textarea>
-        <a href="#" class="btn-final" onclick="ev()">SOLICITAR OFERTA TÉCNICA Y CONTRATO</a>
+        <h2>Necesidad Específica</h2>
+        <textarea id="texto_problema" rows="4" placeholder="Describa brevemente en qué podemos ayudarle..." style="width:100%; border-radius:10px; padding:12px; border:1px solid #ccc;"></textarea>
+        
+        <a href="#" class="btn-enviar" onclick="mandarWhatsApp()">SOLICITAR PROFORMA Y SERVICIOS</a>
     </section>
 
-    <footer style="text-align: center; color: #999; font-size: 0.75rem; padding-bottom: 20px;">
+    <footer style="text-align: center; color: #888; font-size: 0.8rem; padding-bottom: 30px;">
         PDL WINOBAD Y ASOCIADOS | Ciego de Ávila | REEUP 318/999.2.15562
     </footer>
 </div>
 
 <script>
-    let resDiag = {};
-    function toggle(id) {
-        const el = document.getElementById(id);
-        const is = el.style.display === 'block';
-        document.querySelectorAll('.p-desplegable').forEach(d => d.style.display = 'none');
-        el.style.display = is ? 'none' : 'block';
+    let respuestas = {};
+
+    function openSrv(id, btn) {
+        const panel = document.getElementById(id);
+        const isVisible = panel.style.display === 'block';
+        document.querySelectorAll('.panel-servicios').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.btn-concepto').forEach(b => b.classList.remove('active'));
+        
+        if (!isVisible) {
+            panel.style.display = 'block';
+            btn.classList.add('active');
+        }
     }
-    function sd(btn, cat) {
-        btn.parentElement.querySelectorAll('.btn-diag').forEach(b => b.classList.remove('active'));
+
+    function setD(btn, cat) {
+        btn.parentElement.querySelectorAll('.btn-opt').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        resDiag[cat] = btn.innerText;
+        respuestas[cat] = btn.innerText;
     }
-    function ev() {
-        const n = document.getElementById('nombre').value;
-        const t = document.getElementById('tel').value;
+
+    function mandarWhatsApp() {
+        const n = document.getElementById('entidad').value;
+        const c = document.getElementById('correo').value;
+        const t = document.getElementById('whatsapp').value;
+        const p = document.getElementById('texto_problema').value;
+
         if(!n || !t) { alert("Nombre y Teléfono son obligatorios."); return; }
-        
-        let s = [];
-        document.querySelectorAll('.srv-check:checked').forEach(c => s.push(c.value));
-        
-        let m = `*SOLICITUD WINOBAD*%0A*CLIENTE:* ${n}%0A*TEL:* ${t}%0A%0A*SERVICIOS:*%0A${s.join('%0A') || 'Consulta'}%0A%0A*DIAGNÓSTICO:*%0A`;
-        for(let k in resDiag) { m += `• ${k}: ${resDiag[k]}%0A`; }
-        m += `%0A_Favor enviar Certifico Legal y Proforma de Contrato._`;
-        
-        window.open(`https://wa.me/5356955208?text=${m}`, '_blank');
+
+        let seleccionados = [];
+        document.querySelectorAll('.check-srv:checked').forEach(s => seleccionados.push(s.value));
+
+        let url = `https://wa.me/5356955208?text=`;
+        let texto = `*SOLICITUD PROFESIONAL - WINOBAD*%0A%0A`;
+        texto += `*ENTIDAD:* ${n}%0A*TEL:* ${t}%0A*MAIL:* ${c}%0A%0A`;
+        texto += `*SERVICIOS DEL ANEXO 4:*%0A${seleccionados.join('%0A') || 'Ninguno seleccionado'}%0A%0A`;
+        texto += `*DIAGNÓSTICO RES. 60:*%0A`;
+        for(let k in respuestas) { texto += `• ${k}: ${respuestas[k]}%0A`; }
+        if(p) texto += `%0A*ASUNTO:* ${p}`;
+        texto += `%0A%0A_Favor adjuntar Certifico Legal y Proforma de Contrato._`;
+
+        window.open(url + texto, '_blank');
     }
 </script>
 </body>
