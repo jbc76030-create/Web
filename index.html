@@ -3,207 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Consultoría Pro</title>
+    <title>Winobad y Asociados | Suite de Consultoría Pro</title>
     <style>
-        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--fondo); margin: 0; color: #333; }
+        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f0f2f5; --blanco: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; }
         
         header { background: var(--azul); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .logo { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; object-fit: contain; }
-        
-        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
+        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; object-fit: contain; }
+        .sub-header { color: var(--dorado); font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* Tarjetas de Servicios */
-        .seccion { background: var(--blanco); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 20px; border-top: 4px solid var(--dorado); }
-        h2 { color: var(--azul); margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
-        
-        /* Botones de Categorías */
-        .grid-servicios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-        .btn-servicio { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 10px; cursor: pointer; text-align: left; transition: 0.3s; font-weight: 600; color: var(--azul); }
-        .btn-servicio:hover { background: var(--azul); color: white; border-color: var(--azul); }
+        .container { max-width: 850px; margin: 20px auto; padding: 0 15px; }
+        section { background: var(--blanco); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--dorado); }
 
-        /* Área de Diagnóstico Desplegable */
-        .diag-box { display: none; margin-top: 15px; padding: 20px; background: #fffdf5; border-radius: 12px; border: 1px dashed var(--dorado); animation: fadeIn 0.4s; }
-        .pregunta-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .pregunta-text { font-weight: 600; margin-bottom: 10px; display: block; font-size: 0.95rem; }
+        h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; margin-top: 0; font-size: 1.4rem; }
         
-        .opciones-flex { display: flex; gap: 10px; }
-        .opc-btn { flex: 1; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; cursor: pointer; font-size: 0.85rem; }
-        .opc-btn.selected { background: var(--dorado); color: var(--azul); border-color: var(--dorado); font-weight: bold; }
+        /* Formulario de Contacto */
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--azul); }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
 
-        /* Footer y Contacto */
-        .panel-final { background: var(--azul); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-top: 30px; }
-        .btn-ws { background: #25D366; color: white; padding: 15px; border-radius: 10px; text-decoration: none; display: block; font-weight: bold; margin-top: 15px; font-size: 1.1rem; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 500px) { .grid-servicios { grid-template-columns: 1fr; } }
+        /* Grid de Servicios */
+        .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+        .card-servicio { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; transition: 0.3s; }
+        .precio { color: var(--azul); font-weight: bold; display: block; margin-top: 5px; }
+
+        /* Diagnóstico Desplegable */
+        .diag-btn { background: var(--azul); color: white; width: 100%; padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .quiz-container { display: none; margin-top: 20px; padding: 20px; background: #fffdf5; border-radius: 15px; border: 1px dashed var(--dorado); }
+        .pregunta-item { margin-bottom: 15px; }
+        .opc-btn { padding: 8px 15px; border: 1px solid #ccc; border-radius: 5px; background: white; cursor: pointer; margin-right: 5px; }
+        .opc-btn.active { background: var(--dorado); color: var(--azul); border-color: var(--dorado); font-weight: bold; }
+
+        /* Botón de Envío */
+        .btn-envio { background: #25D366; color: white; display: block; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 20px; transition: 0.3s; }
+        .btn-envio:hover { transform: scale(1.02); background: #128C7E; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Winobad" class="logo" onerror="this.style.display='none';">
-    <div style="font-weight: 800; font-size: 1.5rem;">Winobad y Asociados</div>
-    <div style="color: var(--dorado); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">SOLUCIONES INTEGRALES SEGÚN RES. 60/2011 CGR</div>
+    <img src="logo.png" alt="Winobad" class="logo" id="logo-header" onerror="this.style.display='none';">
+    <div style="font-weight: 800; font-size: 1.6rem;">WINOBAD Y ASOCIADOS</div>
+    <div class="sub-header">Servicios Pro y Diagnóstico de Control Interno</div>
 </header>
 
 <div class="container">
     
-    <div class="seccion">
-        <h2>Bienvenido a su Consultoría Digital</h2>
-        <p>Somos especialistas en el fortalecimiento de la base reglamentaria y operativa de su negocio. Seleccione un área para realizar un <b>diagnóstico gratuito</b> u obtener asistencia técnica inmediata.</p>
-        <input type="text" id="nombre_cliente" placeholder="Nombre o Razón Social (Obligatorio)" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; box-sizing:border-box;">
-    </div>
-
-    <div class="seccion">
-        <h2>Nuestras Áreas de Servicio</h2>
-        <div class="grid-servicios">
-            <button class="btn-servicio" onclick="toggleDiag('contable')">📊 Contabilidad y Finanzas</button>
-            <button class="btn-servicio" onclick="toggleDiag('control')">🛡️ Control Interno</button>
-            <button class="btn-servicio" onclick="toggleDiag('capital')">👥 Capital Humano</button>
-            <button class="btn-servicio" onclick="toggleDiag('legal')">⚖️ Carpeta Legal y Logística</button>
+    <section>
+        <h2>Datos de Contacto</h2>
+        <div class="form-group">
+            <label>Nombre o Razón Social *</label>
+            <input type="text" id="nombre" placeholder="Ej: MIPYME Ejemplo S.R.L.">
         </div>
-
-        <div id="diag-contable" class="diag-box">
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Posee procedimientos contables y base reglamentaria actualizada?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'cont_proc')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'cont_proc')">No</button>
-                </div>
+        <div class="grid-servicios" style="grid-template-columns: 1fr 1fr;">
+            <div class="form-group">
+                <label>Correo Electrónico *</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com">
             </div>
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Utiliza un sistema automatizado contable eficiente?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'cont_auto')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'cont_auto')">No</button>
-                </div>
-            </div>
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Realiza análisis de razones financieras periódicamente?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'cont_razon')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'cont_razon')">No</button>
-                </div>
+            <div class="form-group">
+                <label>Teléfono de Contacto *</label>
+                <input type="tel" id="tel" placeholder="+53 5xxxxxxx">
             </div>
         </div>
+    </section>
 
-        <div id="diag-control" class="diag-box">
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Tiene implementado el Sistema de Control Interno (Res. 60)?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'sci_imp')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'sci_imp')">No</button>
-                </div>
+    <section>
+        <h2>Portafolio de Servicios Pro</h2>
+        <p>Seleccione el servicio de su interés para incluirlo en la oferta técnica:</p>
+        <div class="grid-servicios" id="lista-servicios">
+            <div class="card-servicio">
+                <input type="checkbox" class="srv-check" value="Teneduría de Libros (60,000 CUP)"> 
+                <b>Teneduría de Libros</b>
+                <span class="precio">60,000.00 CUP/mes</span>
             </div>
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Cuenta con Fichas de Costo vigentes según normativa?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'sci_costo')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'sci_costo')">No</button>
-                </div>
+            <div class="card-servicio">
+                <input type="checkbox" class="srv-check" value="Gestión Documental (20,000 CUP)"> 
+                <b>Gestión Documental</b>
+                <span class="precio">20,000.00 CUP/mes</span>
             </div>
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Ha diagnosticado sus documentos primarios recientemente?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'sci_prim')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'sci_prim')">No</button>
-                </div>
+            <div class="card-servicio">
+                <input type="checkbox" class="srv-check" value="Diagnóstico Organizacional (20,000 CUP)"> 
+                <b>Diagnóstico Organizacional</b>
+                <span class="precio">Desde 20,000.00 CUP</span>
+            </div>
+            <div class="card-servicio">
+                <input type="checkbox" class="srv-check" value="Legalización de Actores Económicos (20,000 CUP)"> 
+                <b>Legalización de Actores</b>
+                <span class="precio">20,000.00 CUP</span>
             </div>
         </div>
+    </section>
 
-        <div id="diag-capital" class="diag-box">
+    <section>
+        <h2>Diagnóstico de Control Interno (Res. 60/2011)</h2>
+        <p>Realice un diagnóstico previo gratuito para evaluar sus riesgos:</p>
+        <button class="diag-btn" onclick="toggleQuiz()">Iniciar Test de Diagnóstico</button>
+        
+        <div id="quiz" class="quiz-container">
             <div class="pregunta-item">
-                <span class="pregunta-text">¿Tiene reglamentos disciplinarios y sistemas de pago definidos?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'ch_reg')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'ch_reg')">No</button>
-                </div>
+                <b>1. ¿Tiene implementado el Sistema de Control Interno?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'SCI')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'SCI')">No</button>
             </div>
             <div class="pregunta-item">
-                <span class="pregunta-text">¿Posee registros de capital de trabajo actualizados?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'ch_cap')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'ch_cap')">No</button>
-                </div>
+                <b>2. ¿Posee procedimientos contables y base reglamentaria?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'Base Reg.')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'Base Reg.')">No</button>
             </div>
             <div class="pregunta-item">
-                <span class="pregunta-text">¿Cumple con la Seguridad y Salud del Trabajo (SST)?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'ch_sst')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'ch_sst')">No</button>
-                </div>
+                <b>3. ¿Cuenta con Carpeta Legal organizada y actualizada?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'Legal')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'Legal')">No</button>
+            </div>
+            <div class="pregunta-item">
+                <b>4. ¿Tiene Reglamento Disciplinario y Sistemas de Pago?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'RRHH')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'RRHH')">No</button>
+            </div>
+            <div class="pregunta-item">
+                <b>5. ¿Realiza Análisis de Razones Financieras y Capital de Trabajo?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'Finanzas')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'Finanzas')">No</button>
+            </div>
+            <div class="pregunta-item">
+                <b>6. ¿Tiene Logística de Almacenes y Control de Documentos Primarios?</b><br><br>
+                <button class="opc-btn" onclick="setRes(this, 'Logistica')">Sí</button>
+                <button class="opc-btn" onclick="setRes(this, 'Logistica')">No</button>
             </div>
         </div>
+    </section>
 
-        <div id="diag-legal" class="diag-box">
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Mantiene su Carpeta Legal organizada y actualizada?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'leg_carp')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'leg_carp')">No</button>
-                </div>
-            </div>
-            <div class="pregunta-item">
-                <span class="pregunta-text">¿Existe una logística de almacenes con control de inventario?</span>
-                <div class="opciones-flex">
-                    <button class="opc-btn" onclick="mark(this, 'leg_alm')">Sí</button>
-                    <button class="opc-btn" onclick="mark(this, 'leg_alm')">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel-final">
-        <h3>¿Necesita una Proforma de Contrato?</h3>
-        <p>Al presionar el botón, se generará un reporte de sus respuestas para que nuestro equipo le envíe una oferta personalizada inmediata.</p>
-        <textarea id="obs" placeholder="Escriba aquí cualquier otro problema que desee resolver..." style="width:100%; border-radius:10px; padding:10px; margin-bottom:10px;"></textarea>
-        <a href="#" class="btn-ws" onclick="enviar()">Enviar Diagnóstico al Especialista</a>
-    </div>
-
-    <p style="text-align: center; color: #777; font-size: 0.8rem; margin: 30px 0;">PDL Winobad y Asociados | Ciego de Ávila, Cuba</p>
+    <section style="text-align: center; border-top: 5px solid #25D366;">
+        <h2>Finalizar y Solicitar Contrato</h2>
+        <textarea id="mensaje" placeholder="Escriba aquí cualquier otra necesidad específica..."></textarea>
+        
+        <a href="#" class="btn-envio" onclick="enviarFinal()">ENVIAR DATOS Y RECIBIR OFERTA</a>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Al enviar, recibirá automáticamente el <b>Certifico Legal</b> y la <b>Proforma de Contrato</b>. Un especialista le contactará telefónicamente en breve.</p>
+    </section>
 </div>
 
 <script>
-    let respuestas = {};
+    let respuestasDiag = {};
 
-    function toggleDiag(id) {
-        const box = document.getElementById('diag-' + id);
-        const boxes = document.querySelectorAll('.diag-box');
-        boxes.forEach(b => { if(b.id !== 'diag-'+id) b.style.display = 'none'; }); // Cierra otros para no abrumar
-        box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+    function toggleQuiz() {
+        const q = document.getElementById('quiz');
+        q.style.display = (q.style.display === 'block') ? 'none' : 'block';
     }
 
-    function mark(btn, categoria) {
-        const siblings = btn.parentElement.querySelectorAll('.opc-btn');
-        siblings.forEach(s => s.classList.remove('selected'));
-        btn.classList.add('selected');
-        respuestas[categoria] = btn.innerText;
+    function setRes(btn, cat) {
+        const btns = btn.parentElement.querySelectorAll('.opc-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        respuestasDiag[cat] = btn.innerText;
     }
 
-    function enviar() {
-        const nombre = document.getElementById('nombre_cliente').value;
-        const obs = document.getElementById('obs').value;
-        if(!nombre) { alert("Por favor, ingrese su nombre para personalizar su contrato."); return; }
-
-        let reporte = `*NUEVO DIAGNÓSTICO - WINOBAD*%0A`;
-        reporte += `*Cliente:* ${nombre}%0A%0A`;
-        reporte += `*RESPUESTAS CLAVE:*%0A`;
+    function enviarFinal() {
+        const nom = document.getElementById('nombre').value;
+        const mail = document.getElementById('email').value;
+        const tel = document.getElementById('tel').value;
+        const msg = document.getElementById('mensaje').value;
         
-        for (let key in respuestas) {
-            reporte += `- ${key}: ${respuestas[key]}%0A`;
+        if(!nom || !mail || !tel) {
+            alert("Por favor, complete su nombre, correo y teléfono.");
+            return;
         }
 
-        if(obs) reporte += `%0A*Observaciones:* ${obs}`;
-        reporte += `%0A%0A_Solicito proforma de contrato basada en este perfil._`;
+        let servicios = [];
+        document.querySelectorAll('.srv-check:checked').forEach(c => servicios.push(c.value));
 
-        window.open(`https://wa.me/5356955208?text=${reporte}`, '_blank');
+        let texto = `*SOLICITUD DE SERVICIOS PRO - WINOBAD*%0A%0A`;
+        texto += `*CLIENTE:* ${nom}%0A`;
+        texto += `*EMAIL:* ${mail}%0A`;
+        texto += `*TELÉFONO:* ${tel}%0A%0A`;
+        
+        texto += `*SERVICIOS INTERÉS:*%0A${servicios.join('%0A') || 'Consulta general'}%0A%0A`;
+        
+        texto += `*DIAGNÓSTICO RES. 60:*%0A`;
+        for (let k in respuestasDiag) {
+            texto += `- ${k}: ${respuestasDiag[k]}%0A`;
+        }
+        
+        if(msg) texto += `%0A*COMENTARIOS:* ${msg}`;
+        
+        texto += `%0A%0A---%0A*AUTO-RESPUESTA:* Adjunto enviamos Certifico Legal y Proforma. En breve un especialista le llamará.`;
+
+        // URL WhatsApp
+        const waUrl = `https://wa.me/5356955208?text=${texto}`;
+        window.open(waUrl, '_blank');
     }
 </script>
 
 </body>
 </html>
-  
-    
-
-  
