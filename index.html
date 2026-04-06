@@ -3,197 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Catálogo Integral Anexo 4</title>
+    <title>Winobad y Asociados | Suite Integral de Servicios</title>
     <style>
         :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--fondo); margin: 0; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; }
+        header { background: var(--azul); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
+        .logo { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; }
+        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+        section { background: var(--blanco); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px; border-top: 4px solid var(--dorado); }
+        h2 { color: var(--azul); font-size: 1.3rem; margin-top: 0; border-left: 4px solid var(--dorado); padding-left: 10px; }
         
-        header { background: var(--azul); color: white; padding: 40px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .logo { width: 85px; height: 85px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 12px; object-fit: contain; }
-        .sub-header { color: var(--dorado); font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-
-        .container { max-width: 900px; margin: 25px auto; padding: 0 20px; }
-        section { background: var(--blanco); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--dorado); }
-
-        h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; font-size: 1.4rem; margin-top: 0; }
+        /* Acordeón de Servicios */
+        .btn-general { width: 100%; padding: 15px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 10px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .btn-general:hover { background: #e2e8f0; }
+        .panel-especifico { display: none; padding: 10px 15px; border: 1px solid #e2e8f0; border-top: none; margin-bottom: 15px; background: #fff; border-radius: 0 0 10px 10px; }
         
-        /* Botones de Conceptos Generales */
-        .btn-concepto { width: 100%; padding: 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
-        .btn-concepto:hover { background: #f1f5f9; border-color: var(--dorado); }
-        .btn-concepto.active { border-bottom-left-radius: 0; border-bottom-right-radius: 0; background: #e2e8f0; }
+        .item-servicio { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .item-servicio:last-child { border-bottom: none; }
+        .item-servicio input { width: 18px; height: 18px; margin-top: 3px; }
+        .srv-text b { font-size: 0.9rem; color: #334155; display: block; }
+        .srv-text span { font-size: 0.7rem; color: var(--dorado); font-weight: bold; }
 
-        /* Contenedor de Servicios Específicos (100% Anexo 4) */
-        .panel-servicios { display: none; padding: 15px 25px; background: #fff; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px; margin-bottom: 15px; }
-
-        .srv-check-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
-        .srv-check-item:last-child { border-bottom: none; }
-        .srv-check-item input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--azul); }
-        .srv-desc b { display: block; color: #1e293b; font-size: 0.95rem; line-height: 1.3; }
-        .srv-desc span { font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase; }
-
-        /* Diagnóstico Res 60 */
-        .comp-box { background: #f1f5f9; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin: 20px 0 10px; color: var(--azul); }
-        .preg-item { padding: 10px; border-bottom: 1px solid #eee; }
-        .preg-item p { margin: 0 0 10px 0; font-size: 0.95rem; }
-        .group-btns { display: flex; gap: 10px; }
-        .btn-opt { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: white; cursor: pointer; font-weight: 600; }
-        .btn-opt.active { background: var(--azul); color: white; }
-
-        .btn-enviar { background: #25D366; color: white; display: block; text-align: center; padding: 22px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.4rem; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-wa { background: #25D366; color: white; display: block; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Winobad" class="logo" onerror="this.style.display='none';">
-    <div style="font-weight: 800; font-size: 1.8rem;">WINOBAD Y ASOCIADOS</div>
-    <div class="sub-header">Portafolio Oficial y Control Interno</div>
+    <div style="font-weight: 800; font-size: 1.5rem;">WINOBAD Y ASOCIADOS</div>
+    <div style="color: var(--dorado); font-size: 0.8rem; letter-spacing: 1px;">CATÁLOGO OFICIAL DE SERVICIOS</div>
 </header>
 
 <div class="container">
-    
     <section>
-        <h2>Información de la Entidad</h2>
-        <input type="text" id="entidad" placeholder="Nombre de la Entidad / Actor Económico *" style="width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; margin-bottom:15px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <input type="email" id="correo" placeholder="Email *" style="padding:12px; border-radius:10px; border:1px solid #ccc;">
-            <input type="tel" id="whatsapp" placeholder="WhatsApp / Teléfono *" style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+        <h2>Selección de Servicios (Anexo No. 4)</h2>
+
+        <button class="btn-general" onclick="tog('g1')">Implementación de Módulos de Sistemas <span>+</span></button>
+        <div id="g1" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1001-Nóminas"><div class="srv-text"><span>CÓD: 1001</span><b>Implementación de módulo de nóminas</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1003-Contabilidad"><div class="srv-text"><span>CÓD: 1003</span><b>Implementación, configuración y contabilidad</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1004-Finanzas"><div class="srv-text"><span>CÓD: 1004</span><b>Implementación módulo finanzas</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1005-Inventarios"><div class="srv-text"><span>CÓD: 1005</span><b>Implementación módulo inventarios</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1006-Facturación"><div class="srv-text"><span>CÓD: 1006</span><b>Implementación módulo facturación</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="1007-AFT"><div class="srv-text"><span>CÓD: 1007</span><b>Implementación módulo Activos Fijos Tangibles</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="2000-Soporte"><div class="srv-text"><span>CÓD: 2000</span><b>Carga inicial y soporte de sistema automatizado</b></div></div>
         </div>
+
+        <button class="btn-general" onclick="tog('g2')">Asesoría Contable y Financiera <span>+</span></button>
+        <div id="g2" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="4000-Nóminas"><div class="srv-text"><span>CÓD: 4000</span><b>Asesoría en subsistema de nóminas</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="4001-Inventarios"><div class="srv-text"><span>CÓD: 4001</span><b>Asesoría en subsistema de inventarios</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="4002-Contabilidad"><div class="srv-text"><span>CÓD: 4002</span><b>Asesoría en subsistema de contabilidad</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="4004-Finanzas"><div class="srv-text"><span>CÓD: 4004</span><b>Asesoría en subsistema de finanzas</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="4006-EEFF"><div class="srv-text"><span>CÓD: 4006</span><b>Asesoría en la elaboración de los estados financieros</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="3000-EEFF"><div class="srv-text"><span>CÓD: 3000</span><b>Elaboración de los Estados Financieros (Mensual)</b></div></div>
+        </div>
+
+        <button class="btn-general" onclick="tog('g3')">Gestión de Capital Humano (RRHH) <span>+</span></button>
+        <div id="g3" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5000-Diag RRHH"><div class="srv-text"><span>CÓD: 5000</span><b>Diagnóstico de la actividad de Capital Humano</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5002-Expedientes"><div class="srv-text"><span>CÓD: 5002</span><b>Elaboración y completamiento de expedientes laborales</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5004-Seg Social"><div class="srv-text"><span>CÓD: 5004</span><b>Tramitación de seguridad social y jubilaciones</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5005-SST"><div class="srv-text"><span>CÓD: 5005</span><b>Sistema de Seguridad y Salud del Trabajo (SST)</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5008-Contratos"><div class="srv-text"><span>CÓD: 5008</span><b>Elaboración y gestión en los contratos laborales</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="5009-Perfiles"><div class="srv-text"><span>CÓD: 5009</span><b>Elaboración de los perfiles de competencia</b></div></div>
+        </div>
+
+        <button class="btn-general" onclick="tog('g4')">Gestión de la Calidad e Inocuidad <span>+</span></button>
+        <div id="g4" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6001-Gest Calidad"><div class="srv-text"><span>CÓD: 6001</span><b>Gestión integral de calidad (Asesoría)</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6002-Inocuidad"><div class="srv-text"><span>CÓD: 6002</span><b>Inocuidad de alimentos</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6004-Lic Sanitaria"><div class="srv-text"><span>CÓD: 6004</span><b>Gestión de licencia sanitaria</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6005-Lic Ambiental"><div class="srv-text"><span>CÓD: 6005</span><b>Gestión de licencia ambiental</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6007-Marca"><div class="srv-text"><span>CÓD: 6007</span><b>Trámites en el Registro de la marca y logotipo</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="6010-SGC"><div class="srv-text"><span>CÓD: 6010</span><b>Implementar sistema de gestión de la calidad</b></div></div>
+        </div>
+
+        <button class="btn-general" onclick="tog('g5')">Reglamentos y Procedimientos <span>+</span></button>
+        <div id="g5" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="7001-Reg Disciplina"><div class="srv-text"><span>CÓD: 7001</span><b>Reglamento disciplinario</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="7002-Convenio Col"><div class="srv-text"><span>CÓD: 7002</span><b>Convenio Colectivo de Trabajo</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="7006-Proc Inventario"><div class="srv-text"><span>CÓD: 7006</span><b>Procedimiento de subsistema Inventario</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="7009-Proc Contable"><div class="srv-text"><span>CÓD: 7009</span><b>Procedimiento de subsistema Contabilidad</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="7020-Riesgos Lab"><div class="srv-text"><span>CÓD: 7020</span><b>Procedimiento de identificación de riesgos laborales</b></div></div>
+        </div>
+
+        <button class="btn-general" onclick="tog('g6')">Gestión Empresarial y Control Interno <span>+</span></button>
+        <div id="g6" class="panel-especifico">
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8004-Control Interno"><div class="srv-text"><span>CÓD: 8004</span><b>Implementación de sistema de Control Interno</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8007-Diag Contable"><div class="srv-text"><span>CÓD: 8007</span><b>Diagnóstico de la gestión contable</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8008-Fichas Costo"><div class="srv-text"><span>CÓD: 8008</span><b>Elaboración de fichas de costos</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8010-Contratación"><div class="srv-text"><span>CÓD: 8010</span><b>Asesoría en materia de contratación y elaboración de contratos</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8013-Legalización"><div class="srv-text"><span>CÓD: 8013</span><b>Legalización de actualizaciones (MIPYMES, PDL, TCP)</b></div></div>
+            <div class="item-servicio"><input type="checkbox" class="sc" value="8018-Factibilidad"><div class="srv-text"><span>CÓD: 8018</span><b>Estudio de factibilidad</b></div></div>
+        </div>
+
     </section>
 
     <section>
-        <h2>Servicios Profesionales (Anexo No. 4)</h2>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Explore nuestros servicios por categoría y seleccione los de su interés:</p>
-
-        <button class="btn-concepto" onclick="openSrv('srv1', this)">Legalización de Actores Económicos <span>▼</span></button>
-        <div id="srv1" class="panel-servicios">
-            <label class="srv-check-item">
-                <input type="checkbox" class="check-srv" value="Legalización de actualizaciones (8013)">
-                <div class="srv-desc"><span>CÓDIGO: 8013</span><b>Legalización de actualizaciones en la constitución de actores económicos (MIPYMES, PDL, TCP)</b></div>
-            </label>
-        </div>
-
-        <button class="btn-concepto" onclick="openSrv('srv2', this)">Gestión Documental <span>▼</span></button>
-        <div id="srv2" class="panel-servicios">
-            <label class="srv-check-item">
-                <input type="checkbox" class="check-srv" value="Gestión y tramitación documental (8014)">
-                <div class="srv-desc"><span>CÓDIGO: 8014</span><b>Gestión, tramitación e implementación de la actividad documental</b></div>
-            </label>
-        </div>
-
-        <button class="btn-concepto" onclick="openSrv('srv3', this)">Movimientos Organizativos <span>▼</span></button>
-        <div id="srv3" class="panel-servicios">
-            <label class="srv-check-item">
-                <input type="checkbox" class="check-srv" value="Creación, fusión o disolución (8015)">
-                <div class="srv-desc"><span>CÓDIGO: 8015</span><b>Creación, fusión o disolución de una entidad</b></div>
-            </label>
-        </div>
-
-        <button class="btn-concepto" onclick="openSrv('srv4', this)">Teneduría de Libros <span>▼</span></button>
-        <div id="srv4" class="panel-servicios">
-            <label class="srv-check-item">
-                <input type="checkbox" class="check-srv" value="Teneduría de libros (8016)">
-                <div class="srv-desc"><span>CÓDIGO: 8016</span><b>Teneduría de libros y registros contables mensuales</b></div>
-            </label>
-        </div>
-
-        <button class="btn-concepto" onclick="openSrv('srv5', this)">Gestión Empresarial <span>▼</span></button>
-        <div id="srv5" class="panel-servicios">
-            <label class="srv-check-item">
-                <input type="checkbox" class="check-srv" value="Diagnóstico organizacional (8017)">
-                <div class="srv-desc"><span>CÓDIGO: 8017</span><b>Diagnóstico organizacional y gestión empresarial</b></div>
-            </label>
-        </div>
-    </section>
-
-    <section>
-        <h2>Diagnóstico de Control Interno (Res. 60/2011 CGR)</h2>
+        <h2>Identificación</h2>
+        <input type="text" id="cli" placeholder="Nombre de la Entidad *" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px;">
+        <input type="tel" id="tel" placeholder="Teléfono de contacto *" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc;">
         
-        <div class="comp-box">I. AMBIENTE DE CONTROL</div>
-        <div class="preg-item">
-            <p>¿Posee Carpeta Legal, Manual de Cargos y Reglamentos Disciplinarios actualizados?</p>
-            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Ambiente')">Sí</button><button class="btn-opt" onclick="setD(this,'Ambiente')">No</button></div>
-        </div>
-
-        <div class="comp-box">II. GESTIÓN Y PREVENCIÓN DE RIESGOS</div>
-        <div class="preg-item">
-            <p>¿Tiene elaborado el Plan de Prevención de Riesgos y su mapa correspondiente?</p>
-            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Riesgos')">Sí</button><button class="btn-opt" onclick="setD(this,'Riesgos')">No</button></div>
-        </div>
-
-        <div class="comp-box">III. ACTIVIDADES DE CONTROL</div>
-        <div class="preg-item">
-            <p>¿Utiliza software contable y tiene control de inventarios y documentos primarios?</p>
-            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Control')">Sí</button><button class="btn-opt" onclick="setD(this,'Control')">No</button></div>
-        </div>
-
-        <div class="comp-box">IV. INFORMACIÓN Y COMUNICACIÓN</div>
-        <div class="preg-item">
-            <p>¿Los estados financieros y reportes fluyen oportunamente hacia la gerencia?</p>
-            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Info')">Sí</button><button class="btn-opt" onclick="setD(this,'Info')">No</button></div>
-        </div>
-
-        <div class="comp-box">V. SUPERVISIÓN Y MONITOREO</div>
-        <div class="preg-item">
-            <p>¿Realiza chequeos periódicos de la eficacia de su sistema de control?</p>
-            <div class="group-btns"><button class="btn-opt" onclick="setD(this,'Superv')">Sí</button><button class="btn-opt" onclick="setD(this,'Superv')">No</button></div>
-        </div>
+        <a href="#" class="btn-wa" onclick="enviar()">SOLICITAR ESTOS SERVICIOS</a>
     </section>
-
-    <section>
-        <h2>Necesidad Específica</h2>
-        <textarea id="texto_problema" rows="4" placeholder="Describa brevemente en qué podemos ayudarle..." style="width:100%; border-radius:10px; padding:12px; border:1px solid #ccc;"></textarea>
-        
-        <a href="#" class="btn-enviar" onclick="mandarWhatsApp()">SOLICITAR PROFORMA Y SERVICIOS</a>
-    </section>
-
-    <footer style="text-align: center; color: #888; font-size: 0.8rem; padding-bottom: 30px;">
-        PDL WINOBAD Y ASOCIADOS | Ciego de Ávila | REEUP 318/999.2.15562
-    </footer>
 </div>
 
 <script>
-    let respuestas = {};
+    function tog(id) {
+        const p = document.getElementById(id);
+        const v = p.style.display === 'block';
+        document.querySelectorAll('.panel-especifico').forEach(x => x.style.display = 'none');
+        p.style.display = v ? 'none' : 'block';
+    }
 
-    function openSrv(id, btn) {
-        const panel = document.getElementById(id);
-        const isVisible = panel.style.display === 'block';
-        document.querySelectorAll('.panel-servicios').forEach(p => p.style.display = 'none');
-        document.querySelectorAll('.btn-concepto').forEach(b => b.classList.remove('active'));
+    function enviar() {
+        const c = document.getElementById('cli').value;
+        const t = document.getElementById('tel').value;
+        if(!c || !t) { alert("Por favor, llene los datos de contacto."); return; }
+
+        let s = [];
+        document.querySelectorAll('.sc:checked').forEach(i => s.push(i.value));
         
-        if (!isVisible) {
-            panel.style.display = 'block';
-            btn.classList.add('active');
-        }
-    }
-
-    function setD(btn, cat) {
-        btn.parentElement.querySelectorAll('.btn-opt').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        respuestas[cat] = btn.innerText;
-    }
-
-    function mandarWhatsApp() {
-        const n = document.getElementById('entidad').value;
-        const c = document.getElementById('correo').value;
-        const t = document.getElementById('whatsapp').value;
-        const p = document.getElementById('texto_problema').value;
-
-        if(!n || !t) { alert("Nombre y Teléfono son obligatorios."); return; }
-
-        let seleccionados = [];
-        document.querySelectorAll('.check-srv:checked').forEach(s => seleccionados.push(s.value));
-
-        let url = `https://wa.me/5356955208?text=`;
-        let texto = `*SOLICITUD PROFESIONAL - WINOBAD*%0A%0A`;
-        texto += `*ENTIDAD:* ${n}%0A*TEL:* ${t}%0A*MAIL:* ${c}%0A%0A`;
-        texto += `*SERVICIOS DEL ANEXO 4:*%0A${seleccionados.join('%0A') || 'Ninguno seleccionado'}%0A%0A`;
-        texto += `*DIAGNÓSTICO RES. 60:*%0A`;
-        for(let k in respuestas) { texto += `• ${k}: ${respuestas[k]}%0A`; }
-        if(p) texto += `%0A*ASUNTO:* ${p}`;
-        texto += `%0A%0A_Favor adjuntar Certifico Legal y Proforma de Contrato._`;
-
-        window.open(url + texto, '_blank');
+        let m = `*SOLICITUD DE SERVICIOS - WINOBAD*%0A*CLIENTE:* ${c}%0A*TEL:* ${t}%0A%0A*SERVICIOS SELECCIONADOS:*%0A${s.join('%0A') || 'Consulta General'}`;
+        window.open(`https://wa.me/5356955208?text=${m}`, '_blank');
     }
 </script>
 </body>
