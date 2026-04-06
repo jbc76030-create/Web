@@ -7,149 +7,124 @@
     <style>
         :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; line-height: 1.5; }
-        
         header { background: var(--azul); color: white; padding: 40px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 12px; }
-        
         .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
         section { background: var(--blanco); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--dorado); }
-
         h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; font-size: 1.4rem; margin-top: 0; }
         h3 { color: var(--azul); font-size: 1rem; margin-bottom: 10px; background: #f1f5f9; padding: 8px; border-radius: 5px; }
-
-        /* Estilos de Formulario */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
         input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; font-size: 1rem; }
-
+        
         /* Acordeón Servicios Anexo 4 */
-        .btn-concepto { width: 100%; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-concepto:hover { background: #f1f5f9; }
+        .btn-concepto { width: 100%; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-align: left; font-weight: bold; color: var(--azul); cursor: pointer; margin-bottom: 8px; display: flex; justify-content: space-between; }
         .panel-servicios { display: none; padding: 10px 20px; background: #fff; border: 1px solid #f1f5f9; border-radius: 0 0 12px 12px; margin-bottom: 15px; }
-
         .srv-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer; }
-        .srv-item:last-child { border-bottom: none; }
-        .srv-item input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--azul); }
-        .srv-info b { font-size: 0.9rem; color: #444; display: block; line-height: 1.2; }
+        .srv-info b { font-size: 0.9rem; color: #444; display: block; }
         .srv-info span { font-size: 0.7rem; color: var(--dorado); font-weight: bold; }
 
-        /* Diagnóstico Resolución 60 */
+        /* Diagnóstico Resolución 60/11 */
         .diag-pregunta { margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #f0f0f0; }
         .diag-pregunta p { margin: 0 0 10px 0; font-size: 0.95rem; font-weight: 600; }
         .btn-group { display: flex; gap: 10px; }
-        .btn-diag { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-diag { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: bold; }
         .btn-diag.active { background: var(--azul); color: white; border-color: var(--azul); }
 
-        .btn-enviar { background: #25D366; color: white; display: block; text-align: center; padding: 22px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.4rem; margin-top: 20px; box-shadow: 0 5px 15px rgba(37,211,102,0.3); }
-        footer { text-align: center; color: #888; font-size: 0.8rem; padding: 20px 0 40px; }
+        .btn-enviar { background: #25D366; color: white; display: block; text-align: center; padding: 22px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.4rem; margin-top: 20px; }
+        footer { text-align: center; color: #888; font-size: 0.8rem; padding: 40px; }
     </style>
 </head>
 <body>
 
 <header>
     <div style="font-weight: 800; font-size: 1.7rem;">WINOBAD Y ASOCIADOS</div>
-    <div style="color: var(--dorado); font-size: 0.9rem; font-weight: bold; letter-spacing: 1.5px;">CONSULTORÍA Y CONTROL INTERNO</div>
+    <div style="color: var(--dorado); font-size: 0.9rem; font-weight: bold;">CONSULTORÍA INTEGRAL Y CONTROL INTERNO</div>
 </header>
 
 <div class="container">
     
     <section>
         <h2>Identificación del Cliente</h2>
-        <input type="text" id="entidad" placeholder="Nombre de la Entidad / Actor Económico *" style="margin-bottom:10px;">
+        <input type="text" id="entidad" placeholder="Nombre de la Entidad / MIPYME / Actor Económico *">
         <div class="form-grid">
             <input type="email" id="correo" placeholder="Correo Electrónico">
-            <input type="tel" id="whatsapp" placeholder="WhatsApp / Teléfono *">
+            <input type="tel" id="whatsapp" placeholder="Teléfono de Contacto *">
         </div>
     </section>
 
     <section>
-        <h2>Portafolio de Servicios (Anexo No. 4)</h2>
-        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Seleccione todos los servicios de su interés para la oferta técnica:</p>
+        <h2>Selección de Servicios (Anexo No. 4)</h2>
+        <p style="font-size: 0.85rem; color: #666;">Seleccione los módulos requeridos para su contrato[cite: 105]:</p>
 
         <button class="btn-concepto" onclick="toggle('c1')">Sistemas Automatizados (1000-2000) <span>▼</span></button>
         <div id="c1" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Nóminas (1001)"><div class="srv-info"><span>1001</span><b>Implementación de módulo de nóminas</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Contabilidad (1003)"><div class="srv-info"><span>1003</span><b>Implementación, configuración y contabilidad</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Inventarios (1005)"><div class="srv-info"><span>1005</span><b>Implementación módulo inventarios</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Soporte (2000)"><div class="srv-info"><span>2000</span><b>Carga inicial y soporte de sistema automatizado</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Nóminas (1001)"><div class="srv-info"><span>1001</span><b>Módulo de nóminas [cite: 107]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Contabilidad (1003)"><div class="srv-info"><span>1003</span><b>Configuración y contabilidad [cite: 107]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Inventarios (1005)"><div class="srv-info"><span>1005</span><b>Módulo de inventarios [cite: 107]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Soporte (2000)"><div class="srv-info"><span>2000</span><b>Carga inicial y soporte técnico [cite: 107]</b></div></label>
         </div>
 
-        <button class="btn-concepto" onclick="toggle('c2')">Asesoría Contable y EEFF (3000-4000) <span>▼</span></button>
+        <button class="btn-concepto" onclick="toggle('c2')">Asesoría Contable y Financiera (3000-4000) <span>▼</span></button>
         <div id="c2" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="EEFF Mensual (3000)"><div class="srv-info"><span>3000</span><b>Elaboración de los Estados Financieros (Mensual)</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Asesoría Contabilidad (4002)"><div class="srv-info"><span>4002</span><b>Asesoría en subsistema de contabilidad</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Asesoría Finanzas (4004)"><div class="srv-info"><span>4004</span><b>Asesoría en subsistema de finanzas</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Asesoría EEFF (4006)"><div class="srv-info"><span>4006</span><b>Asesoría en la elaboración de los estados financieros</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="EEFF (3000)"><div class="srv-info"><span>3000</span><b>Elaboración de Estados Financieros [cite: 107]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Asesoría Contable (4002)"><div class="srv-info"><span>4002</span><b>Asesoría en contabilidad [cite: 107]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Asesoría Finanzas (4004)"><div class="srv-info"><span>4004</span><b>Asesoría en subsistema de finanzas [cite: 107]</b></div></label>
         </div>
 
         <button class="btn-concepto" onclick="toggle('c3')">Capital Humano y RRHH (5000) <span>▼</span></button>
         <div id="c3" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag RRHH (5000)"><div class="srv-info"><span>5000</span><b>Diagnóstico de la actividad de Capital Humano</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Expedientes (5002)"><div class="srv-info"><span>5002</span><b>Elaboración y completamiento de expedientes laborales</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="SST (5005)"><div class="srv-info"><span>5005</span><b>Sistema de Seguridad y Salud del Trabajo (SST)</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Contratos Laborales (5008)"><div class="srv-info"><span>5008</span><b>Elaboración y gestión en los contratos laborales</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag RRHH (5000)"><div class="srv-info"><span>5000</span><b>Diagnóstico de Capital Humano [cite: 108]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Expedientes (5002)"><div class="srv-info"><span>5002</span><b>Completamiento de expedientes laborales [cite: 108]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="SST (5005)"><div class="srv-info"><span>5005</span><b>Seguridad y Salud del Trabajo [cite: 109]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Contratos (5008)"><div class="srv-info"><span>5008</span><b>Gestión de contratos laborales [cite: 109]</b></div></label>
         </div>
 
-        <button class="btn-concepto" onclick="toggle('c4')">Calidad e Inocuidad (6000) <span>▼</span></button>
+        <button class="btn-concepto" onclick="toggle('c4')">Gestión y Legalización (8000) <span>▼</span></button>
         <div id="c4" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Inocuidad (6002)"><div class="srv-info"><span>6002</span><b>Inocuidad de alimentos</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Lic. Sanitaria (6004)"><div class="srv-info"><span>6004</span><b>Gestión de licencia sanitaria</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Registro Marca (6007)"><div class="srv-info"><span>6007</span><b>Trámites en el Registro de la marca y logotipo</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="SGC (6010)"><div class="srv-info"><span>6010</span><b>Implementar sistema de gestión de la calidad</b></div></label>
-        </div>
-
-        <button class="btn-concepto" onclick="toggle('c5')">Gestión y Control Interno (7000-8000) <span>▼</span></button>
-        <div id="c5" class="panel-servicios">
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Reg. Disciplinario (7001)"><div class="srv-info"><span>7001</span><b>Reglamento disciplinario</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="S. Control Interno (8004)"><div class="srv-info"><span>8004</span><b>Implementación de sistema de Control Interno</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag. Contable (8007)"><div class="srv-info"><span>8007</span><b>Diagnóstico de la gestión contable</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Legalización (8013)"><div class="srv-info"><span>8013</span><b>Legalización de actualizaciones (MIPYMES, PDL, TCP)</b></div></label>
-            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag. Organizacional (8017)"><div class="srv-info"><span>8017</span><b>Diagnóstico organizacional y gestión empresarial</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Control Interno (8004)"><div class="srv-info"><span>8004</span><b>Implementación de Control Interno [cite: 117]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag Contable (8007)"><div class="srv-info"><span>8007</span><b>Diagnóstico de gestión contable [cite: 117]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Legalización (8013)"><div class="srv-info"><span>8013</span><b>Legalización de actualizaciones [cite: 119]</b></div></label>
+            <label class="srv-item"><input type="checkbox" class="check-srv" value="Diag Org (8017)"><div class="srv-info"><span>8017</span><b>Diagnóstico organizacional [cite: 120]</b></div></label>
         </div>
     </section>
 
     <section>
-        <h2>Diagnóstico de Control Interno (Res. 60/11 CGR)</h2>
+        <h2>Autodiagnóstico (Res. 60/11 CGR)</h2>
+        <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">Indique el estado actual de sus componentes de control:</p>
         
-        <h3>I. Ambiente de Control</h3>
         <div class="diag-pregunta">
-            <p>¿Posee manuales de cargos, reglamentos disciplinarios y carpeta legal actualizada?</p>
+            <p>1. ¿Posee Ambiente de Control (Manuales, Carpeta Legal, Reglamentos)?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Ambiente')">Sí</button><button class="btn-diag" onclick="sd(this,'Ambiente')">No</button></div>
         </div>
-
-        <h3>II. Gestión de Riesgos</h3>
         <div class="diag-pregunta">
-            <p>¿Tiene elaborado el Plan de Prevención de Riesgos de la entidad?</p>
+            <p>2. ¿Tiene identificado su Plan de Prevención de Riesgos?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Riesgos')">Sí</button><button class="btn-diag" onclick="sd(this,'Riesgos')">No</button></div>
         </div>
-
-        <h3>III. Actividades de Control</h3>
         <div class="diag-pregunta">
-            <p>¿Utiliza software contable automatizado y controla sus inventarios al detalle?</p>
+            <p>3. ¿Realiza actividades de control (Arqueos, Inventarios periódicos)?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Control')">Sí</button><button class="btn-diag" onclick="sd(this,'Control')">No</button></div>
         </div>
-
-        <h3>IV. Información y Comunicación</h3>
         <div class="diag-pregunta">
-            <p>¿Los estados financieros fluyen mensualmente hacia la dirección?</p>
+            <p>4. ¿Fluye la Información y Comunicación hacia la dirección?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Info')">Sí</button><button class="btn-diag" onclick="sd(this,'Info')">No</button></div>
         </div>
-
-        <h3>V. Supervisión y Monitoreo</h3>
         <div class="diag-pregunta">
-            <p>¿Realiza autoevaluaciones de control interno periódicamente?</p>
+            <p>5. ¿Ejecuta Supervisión y Monitoreo (Autoevaluaciones)?</p>
             <div class="btn-group"><button class="btn-diag" onclick="sd(this,'Superv')">Sí</button><button class="btn-diag" onclick="sd(this,'Superv')">No</button></div>
         </div>
     </section>
 
     <section>
-        <h2>Descripción del Problema</h2>
-        <p style="font-size: 0.85rem; color: #666;">Describa brevemente su situación o necesidad específica:</p>
-        <textarea id="problema" rows="4" placeholder="Ej: Tengo atraso contable de 3 meses y necesito organizar los expedientes de RRHH..."></textarea>
+        <h2>Descripción de la Problemática</h2>
+        <p style="font-size: 0.85rem; color: #666;">Explique brevemente la situación actual de su entidad:</p>
+        <textarea id="problema" rows="4" placeholder="Ej: Presento atraso en los estados financieros y necesito organizar los expedientes de personal..."></textarea>
         
-        <a href="#" class="btn-enviar" onclick="enviar()">ENVIAR SOLICITUD POR WHATSAPP</a>
+        <a href="#" class="btn-enviar" onclick="enviar()">ENVIAR SOLICITUD A WINOBAD</a>
     </section>
 
-    <footer>PDL WINOBAD Y ASOCIADOS | Ciego de Ávila | REEUP 318/999.2.15562</footer>
+    <footer>
+        PDL WINOBAD Y ASOCIADOS | Ciego de Ávila<br>
+        REEUP: 318/999.2.15562 | NIT: 14004407200 [cite: 1, 3, 4]
+    </footer>
 </div>
 
 <script>
@@ -173,18 +148,18 @@
         const tel = document.getElementById('whatsapp').value;
         const prob = document.getElementById('problema').value;
 
-        if(!ent || !tel) { alert("Nombre y Teléfono son obligatorios."); return; }
+        if(!ent || !tel) { alert("Por favor complete el nombre de la entidad y su teléfono."); return; }
 
         let srvs = [];
         document.querySelectorAll('.check-srv:checked').forEach(c => srvs.push(c.value));
 
-        let msg = `*SOLICITUD PROFESIONAL - WINOBAD*%0A%0A`;
+        let msg = `*SOLICITUD DE SERVICIOS - WINOBAD*%0A`;
         msg += `*CLIENTE:* ${ent}%0A*TEL:* ${tel}%0A%0A`;
-        msg += `*SERVICIOS ANEXO 4:*%0A${srvs.join('%0A') || 'Consulta General'}%0A%0A`;
-        msg += `*DIAGNÓSTICO RES. 60:*%0A`;
+        msg += `*SERVICIOS REQUERIDOS:*%0A${srvs.join('%0A') || 'Consulta General'}%0A%0A`;
+        msg += `*ESTADO DE CONTROL INTERNO:*%0A`;
         for(let k in respuestasDiag) { msg += `• ${k}: ${respuestasDiag[k]}%0A`; }
-        if(prob) msg += `%0A*DETALLE DEL PROBLEMA:*%0A${prob}`;
-        msg += `%0A%0A_Favor enviar Certifico Legal y Proforma de Contrato._`;
+        if(prob) msg += `%0A*SITUACIÓN ACTUAL:*%0A${prob}`;
+        msg += `%0A%0A_Solicito visita de diagnóstico para proforma de contrato._`;
 
         window.open(`https://wa.me/5356955208?text=${msg}`, '_blank');
     }
