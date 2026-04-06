@@ -3,61 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winobad y Asociados | Suite de Consultoría Pro</title>
+    <title>Winobad y Asociados | Diagnóstico Integral Res. 60</title>
     <style>
-        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f0f2f5; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--fondo); margin: 0; color: #333; }
+        :root { --azul: #002855; --dorado: #d4af37; --fondo: #f4f7f6; --blanco: #ffffff; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--fondo); margin: 0; color: #333; line-height: 1.6; }
         
-        header { background: var(--azul); color: white; padding: 30px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 10px; object-fit: contain; }
-        .sub-header { color: var(--dorado); font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+        header { background: var(--azul); color: white; padding: 35px 15px; text-align: center; border-bottom: 5px solid var(--dorado); }
+        .logo { width: 85px; height: 85px; border-radius: 50%; border: 2px solid var(--dorado); background: white; margin-bottom: 12px; object-fit: contain; }
+        .sub-header { color: var(--dorado); font-size: 0.95rem; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
 
-        .container { max-width: 850px; margin: 20px auto; padding: 0 15px; }
-        section { background: var(--blanco); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--dorado); }
+        .container { max-width: 950px; margin: 25px auto; padding: 0 20px; }
+        section { background: var(--blanco); padding: 35px; border-radius: 25px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); margin-bottom: 30px; border-top: 6px solid var(--dorado); }
 
-        h2 { color: var(--azul); border-left: 5px solid var(--dorado); padding-left: 15px; margin-top: 0; font-size: 1.4rem; }
+        h2 { color: var(--azul); border-left: 6px solid var(--dorado); padding-left: 18px; margin-top: 0; font-size: 1.5rem; }
+        h3 { color: #1e293b; font-size: 1.1rem; margin-top: 25px; background: #f1f5f9; padding: 12px; border-radius: 10px; border-left: 4px solid var(--azul); }
         
-        /* Formulario de Contacto */
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--azul); }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--azul); font-size: 0.9rem; }
+        input, textarea { width: 100%; padding: 14px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-size: 1rem; }
 
-        /* Grid de Servicios */
-        .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
-        .card-servicio { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; transition: 0.3s; }
-        .precio { color: var(--azul); font-weight: bold; display: block; margin-top: 5px; }
+        /* Catálogo Anexo 4 */
+        .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card-servicio { background: #fdfdfd; border: 1px solid #e2e8f0; padding: 15px; border-radius: 15px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; }
+        .card-servicio:hover { border-color: var(--dorado); background: #fcfaf2; }
+        .srv-info b { color: var(--azul); font-size: 0.9rem; display: block; }
+        .srv-info span { font-size: 0.7rem; color: #64748b; font-weight: bold; }
 
-        /* Diagnóstico Desplegable */
-        .diag-btn { background: var(--azul); color: white; width: 100%; padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        .quiz-container { display: none; margin-top: 20px; padding: 20px; background: #fffdf5; border-radius: 15px; border: 1px dashed var(--dorado); }
-        .pregunta-item { margin-bottom: 15px; }
-        .opc-btn { padding: 8px 15px; border: 1px solid #ccc; border-radius: 5px; background: white; cursor: pointer; margin-right: 5px; }
-        .opc-btn.active { background: var(--dorado); color: var(--azul); border-color: var(--dorado); font-weight: bold; }
+        /* Diagnóstico Técnico Res. 60 */
+        .diag-box { margin-top: 15px; }
+        .pregunta-item { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #f1f5f9; }
+        .pregunta-item p { margin: 0 0 12px 0; font-weight: 600; font-size: 0.95rem; color: #334155; }
+        .opciones-btn { display: flex; gap: 10px; }
+        .btn-check { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: white; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+        .btn-check.active { background: var(--azul); color: white; border-color: var(--azul); font-weight: bold; }
 
-        /* Botón de Envío */
-        .btn-envio { background: #25D366; color: white; display: block; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 20px; transition: 0.3s; }
-        .btn-envio:hover { transform: scale(1.02); background: #128C7E; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .btn-final { background: #25D366; color: white; display: block; text-align: center; padding: 22px; border-radius: 18px; text-decoration: none; font-weight: bold; font-size: 1.4rem; margin-top: 30px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+        footer { text-align: center; padding: 40px 0; color: #64748b; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Winobad" class="logo" id="logo-header" onerror="this.style.display='none';">
-    <div style="font-weight: 800; font-size: 1.6rem;">WINOBAD Y ASOCIADOS</div>
-    <div class="sub-header">Servicios Pro y Diagnóstico de Control Interno</div>
+    <img src="logo.png" alt="Winobad" class="logo" onerror="this.style.display='none';">
+    <div style="font-weight: 800; font-size: 1.7rem; letter-spacing: -1px;">WINOBAD Y ASOCIADOS</div>
+    <div class="sub-header">Servicios Pro e Inteligencia de Control Interno</div>
 </header>
 
 <div class="container">
     
     <section>
-        <h2>Datos de Contacto</h2>
-        <div class="form-group">
-            <label>Nombre o Razón Social *</label>
-            <input type="text" id="nombre" placeholder="Ej: MIPYME Ejemplo S.R.L.">
+        <h2>Identificación del Cliente</h2>
+        <div class="form-group" style="margin-bottom:15px;">
+            <label>Nombre de la Entidad o Actor Económico *</label>
+            <input type="text" id="nombre" placeholder="Ej: MIPYME, PDL, Empresa Estatal...">
         </div>
-        <div class="grid-servicios" style="grid-template-columns: 1fr 1fr;">
+        <div class="form-grid">
             <div class="form-group">
                 <label>Correo Electrónico *</label>
                 <input type="email" id="email" placeholder="correo@ejemplo.com">
@@ -70,128 +70,154 @@
     </section>
 
     <section>
-        <h2>Portafolio de Servicios Pro</h2>
-        <p>Seleccione el servicio de su interés para incluirlo en la oferta técnica:</p>
-        <div class="grid-servicios" id="lista-servicios">
+        <h2>Portafolio de Servicios (Anexo No. 4)</h2>
+        <div class="grid-servicios">
             <div class="card-servicio">
-                <input type="checkbox" class="srv-check" value="Teneduría de Libros (60,000 CUP)"> 
-                <b>Teneduría de Libros</b>
-                <span class="precio">60,000.00 CUP/mes</span>
+                <input type="checkbox" class="srv-check" value="Legalización Actores (8013)">
+                <div class="srv-info"><span>CÓD: 8013</span><b>Legalización de Actores Económicos</b></div>
             </div>
             <div class="card-servicio">
-                <input type="checkbox" class="srv-check" value="Gestión Documental (20,000 CUP)"> 
-                <b>Gestión Documental</b>
-                <span class="precio">20,000.00 CUP/mes</span>
+                <input type="checkbox" class="srv-check" value="Gestión Documental (8014)">
+                <div class="srv-info"><span>CÓD: 8014</span><b>Gestión e Implementación Documental</b></div>
             </div>
             <div class="card-servicio">
-                <input type="checkbox" class="srv-check" value="Diagnóstico Organizacional (20,000 CUP)"> 
-                <b>Diagnóstico Organizacional</b>
-                <span class="precio">Desde 20,000.00 CUP</span>
+                <input type="checkbox" class="srv-check" value="Creación/Fusión (8015)">
+                <div class="srv-info"><span>CÓD: 8015</span><b>Creación, Fusión o Disolución</b></div>
             </div>
             <div class="card-servicio">
-                <input type="checkbox" class="srv-check" value="Legalización de Actores Económicos (20,000 CUP)"> 
-                <b>Legalización de Actores</b>
-                <span class="precio">20,000.00 CUP</span>
+                <input type="checkbox" class="srv-check" value="Teneduría de Libros (8016)">
+                <div class="srv-info"><span>CÓD: 8016</span><b>Teneduría de Libros (Contabilidad)</b></div>
+            </div>
+            <div class="card-servicio">
+                <input type="checkbox" class="srv-check" value="Diagnóstico Organizacional (8017)">
+                <div class="srv-info"><span>CÓD: 8017</span><b>Diagnóstico Organizacional</b></div>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Diagnóstico de Control Interno (Res. 60/2011)</h2>
-        <p>Realice un diagnóstico previo gratuito para evaluar sus riesgos:</p>
-        <button class="diag-btn" onclick="toggleQuiz()">Iniciar Test de Diagnóstico</button>
+        <h2>Diagnóstico según Resolución 60/2011 CGR</h2>
+        <p style="font-size: 0.9rem; color: #666;">Evaluación técnica de los componentes del Sistema de Control Interno:</p>
         
-        <div id="quiz" class="quiz-container">
+        <div class="diag-box">
+            <h3>1. Ambiente de Control</h3>
             <div class="pregunta-item">
-                <b>1. ¿Tiene implementado el Sistema de Control Interno?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'SCI')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'SCI')">No</button>
+                <p>1.1. ¿Posee manuales de cargos, reglamentos disciplinarios y su carpeta legal debidamente organizada?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Ambiente - Carpeta Legal')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Ambiente - Carpeta Legal')">No</button>
+                </div>
             </div>
             <div class="pregunta-item">
-                <b>2. ¿Posee procedimientos contables y base reglamentaria?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'Base Reg.')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'Base Reg.')">No</button>
+                <p>1.2. ¿Se encuentran definidos y actualizados los convenios colectivos y reglamentos de Seguridad y Salud (SST)?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Ambiente - RRHH/SST')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Ambiente - RRHH/SST')">No</button>
+                </div>
+            </div>
+
+            <h3>2. Gestión y Prevención de Riesgos</h3>
+            <div class="pregunta-item">
+                <p>2.1. ¿Tiene elaborado el Plan de Prevención de Riesgos y el mapa de riesgos según los subsistemas?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Riesgos - Plan Prev.')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Riesgos - Plan Prev.')">No</button>
+                </div>
+            </div>
+
+            <h3>3. Actividades de Control</h3>
+            <div class="pregunta-item">
+                <p>3.1. ¿Utiliza un sistema automatizado contable (certificable) para el registro de sus operaciones?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Soft Contable')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Soft Contable')">No</button>
+                </div>
             </div>
             <div class="pregunta-item">
-                <b>3. ¿Cuenta con Carpeta Legal organizada y actualizada?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'Legal')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'Legal')">No</button>
+                <p>3.2. ¿Realiza conciliaciones bancarias, análisis de capital de trabajo y razones financieras periódicamente?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Finanzas')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Finanzas')">No</button>
+                </div>
             </div>
             <div class="pregunta-item">
-                <b>4. ¿Tiene Reglamento Disciplinario y Sistemas de Pago?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'RRHH')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'RRHH')">No</button>
+                <p>3.3. ¿Existe una logística de almacenes eficiente con control de documentos primarios y modelos de inventario?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Inventarios')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Control - Inventarios')">No</button>
+                </div>
             </div>
+
+            <h3>4. Información y Comunicación</h3>
             <div class="pregunta-item">
-                <b>5. ¿Realiza Análisis de Razones Financieras y Capital de Trabajo?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'Finanzas')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'Finanzas')">No</button>
+                <p>4.1. ¿Los estados financieros e informes de gestión fluyen oportunamente hacia la dirección y terceros interesados?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Infomación - Flujo')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Infomación - Flujo')">No</button>
+                </div>
             </div>
+
+            <h3>5. Supervisión y Monitoreo</h3>
             <div class="pregunta-item">
-                <b>6. ¿Tiene Logística de Almacenes y Control de Documentos Primarios?</b><br><br>
-                <button class="opc-btn" onclick="setRes(this, 'Logistica')">Sí</button>
-                <button class="opc-btn" onclick="setRes(this, 'Logistica')">No</button>
+                <p>5.1. ¿Realiza autoevaluaciones periódicas o diagnósticos organizacionales sobre la eficiencia empresarial?</p>
+                <div class="opciones-btn">
+                    <button class="btn-check" onclick="sOpt(this, 'Supervisión - Autoeval.')">Sí</button>
+                    <button class="btn-check" onclick="sOpt(this, 'Supervisión - Autoeval.')">No</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center; border-top: 5px solid #25D366;">
-        <h2>Finalizar y Solicitar Contrato</h2>
-        <textarea id="mensaje" placeholder="Escriba aquí cualquier otra necesidad específica..."></textarea>
+    <section>
+        <h2>Planteamiento del Problema</h2>
+        <div class="form-group">
+            <label>Describa brevemente la situación actual de su negocio y en qué podemos ayudarle:</label>
+            <textarea id="problema" rows="4" placeholder="Ej: Necesito actualizar mi contabilidad atrasada y organizar la carpeta legal..."></textarea>
+        </div>
         
-        <a href="#" class="btn-envio" onclick="enviarFinal()">ENVIAR DATOS Y RECIBIR OFERTA</a>
-        <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Al enviar, recibirá automáticamente el <b>Certifico Legal</b> y la <b>Proforma de Contrato</b>. Un especialista le contactará telefónicamente en breve.</p>
+        <a href="#" class="btn-final" onclick="enviarReporte()">SOLICITAR CONTRATO Y OFERTA TÉCNICA</a>
+        
+        <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 20px;">
+            * Al enviar, recibirá el <b>Certifico Legal</b> y la <b>Proforma de Contrato</b> vía WhatsApp.<br>Un especialista de Winobad le contactará por llamada en breve.
+        </p>
     </section>
+
+    <footer>PDL WINOBAD Y ASOCIADOS | Ciego de Ávila | REEUP 318/999.2.15562</footer>
 </div>
 
 <script>
-    let respuestasDiag = {};
+    let diag = {};
 
-    function toggleQuiz() {
-        const q = document.getElementById('quiz');
-        q.style.display = (q.style.display === 'block') ? 'none' : 'block';
-    }
-
-    function setRes(btn, cat) {
-        const btns = btn.parentElement.querySelectorAll('.opc-btn');
-        btns.forEach(b => b.classList.remove('active'));
+    function sOpt(btn, cat) {
+        btn.parentElement.querySelectorAll('.btn-check').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        respuestasDiag[cat] = btn.innerText;
+        diag[cat] = btn.innerText;
     }
 
-    function enviarFinal() {
+    function enviarReporte() {
         const nom = document.getElementById('nombre').value;
         const mail = document.getElementById('email').value;
         const tel = document.getElementById('tel').value;
-        const msg = document.getElementById('mensaje').value;
-        
-        if(!nom || !mail || !tel) {
-            alert("Por favor, complete su nombre, correo y teléfono.");
-            return;
-        }
+        const prob = document.getElementById('problema').value;
 
-        let servicios = [];
-        document.querySelectorAll('.srv-check:checked').forEach(c => servicios.push(c.value));
+        if(!nom || !mail || !tel) { alert("Complete sus datos de contacto."); return; }
 
-        let texto = `*SOLICITUD DE SERVICIOS PRO - WINOBAD*%0A%0A`;
-        texto += `*CLIENTE:* ${nom}%0A`;
-        texto += `*EMAIL:* ${mail}%0A`;
-        texto += `*TELÉFONO:* ${tel}%0A%0A`;
-        
-        texto += `*SERVICIOS INTERÉS:*%0A${servicios.join('%0A') || 'Consulta general'}%0A%0A`;
-        
-        texto += `*DIAGNÓSTICO RES. 60:*%0A`;
-        for (let k in respuestasDiag) {
-            texto += `- ${k}: ${respuestasDiag[k]}%0A`;
-        }
-        
-        if(msg) texto += `%0A*COMENTARIOS:* ${msg}`;
-        
-        texto += `%0A%0A---%0A*AUTO-RESPUESTA:* Adjunto enviamos Certifico Legal y Proforma. En breve un especialista le llamará.`;
+        let srvs = [];
+        document.querySelectorAll('.srv-check:checked').forEach(c => srvs.push(c.value));
 
-        // URL WhatsApp
-        const waUrl = `https://wa.me/5356955208?text=${texto}`;
-        window.open(waUrl, '_blank');
+        let msg = `*DIAGNÓSTICO INTEGRAL RES. 60 - WINOBAD*%0A%0A`;
+        msg += `*ENTIDAD:* ${nom}%0A*MAIL:* ${mail}%0A*TEL:* ${tel}%0A%0A`;
+        
+        msg += `*SERVICIOS INTERÉS:*%0A${srvs.join('%0A') || 'Consulta General'}%0A%0A`;
+        
+        msg += `*RESULTADOS POR COMPONENTE:*%0A`;
+        for(let k in diag) { msg += `• ${k}: ${diag[k]}%0A`; }
+        
+        if(prob) msg += `%0A*SITUACIÓN ACTUAL:*%0A${prob}%0A`;
+        
+        msg += `%0A_Favor enviar Certifico Legal y Proforma. Solicito contacto comercial._`;
+
+        window.open(`https://wa.me/5356955208?text=${msg}`, '_blank');
     }
 </script>
 
