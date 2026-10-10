@@ -2,3 +2,22 @@
 
 /* Keep decorative 3D orbits within the page viewport. */
 body{overflow-x:clip}
+
+/* Alternancia editorial: marfil, blanco, verde salvia y azul profundo. */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;z-index:-1;left:-19vw;top:3%;width:44vw;height:44vw;max-height:620px;border-radius:50%;background:radial-gradient(circle,#edd6bd9c,transparent 68%);pointer-events:none}
+.image-frame{box-shadow:18px 25px 45px #103e4d35,0 0 0 8px #fff9}
+.image-frame img{object-position:center center}
+.catalog-section{background:linear-gradient(135deg,#fffdf8 0%,#fffdf8 69%,#f0f4ed 100%)}
+.needs-grid .need-card:nth-child(1){background:#f1e8dc}.needs-grid .need-card:nth-child(2){background:#eef1eb}.needs-grid .need-card:nth-child(3){background:#e7edf0}.needs-grid .need-card:nth-child(4){background:#f3ece6}
+.steps article{border-top-color:var(--copper)}.steps article:nth-child(even){border-top-color:#56908b}
+.office-band{background:radial-gradient(circle at 82% 22%,#1c5863 0%,transparent 35%),linear-gradient(120deg,#082b38,#0e3f50)}
+.office-band .office-grid>div:first-child{position:relative;z-index:1}
+.office-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:28px 0 30px}
+.office-points span{padding:13px 14px;border:1px solid #8caeb255;border-radius:8px;background:#ffffff0b;color:#d3a374;font-size:11px;font-weight:700}
+.office-points b{color:#f6f5ee;font-weight:600;margin-left:5px}
+.office-band .small-note{max-width:560px}
+.gallery-band{background:linear-gradient(105deg,#e0e8df,#eee8dc)}
+.contact-grid form{border-top:4px solid var(--copper)}
+.chat-panel{border-top:3px solid var(--copper)}
+@media(max-width:700px){.office-points{grid-template-columns:1fr}.office-stack{margin-top:28px}.hero::before{width:90vw;height:90vw;left:-50vw}}
