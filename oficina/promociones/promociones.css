@@ -84,3 +84,35 @@ body:has(.promo-dialog[open]){overflow:hidden}
 .modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.modal-actions .button{min-height:58px}
 .modal-actions svg{width:22px;height:22px;flex:none}.modal-info .contact-note{margin-top:16px}
 @media(max-width:800px){.promo-dialog{inset:0;width:100vw;height:100dvh;max-height:100dvh;margin:0;border-radius:0}.modal-shell{display:block;padding:0}.modal-close{position:fixed;top:calc(10px + env(safe-area-inset-top));right:12px}.modal-poster{border-radius:0;box-shadow:none;max-width:580px;margin:auto}.modal-info{max-width:580px;margin:auto;padding:25px 20px calc(110px + env(safe-area-inset-bottom))}.modal-info h2{font-size:2rem}.modal-body{font-size:1rem}.modal-actions{position:fixed;z-index:6;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fffcf5f2;border-top:1px solid #e4dbce;box-shadow:0 -8px 24px #092d4120;backdrop-filter:blur(14px)}.modal-actions .button{min-height:52px}}
+
+/* Identidad JB: las piezas promocionales conservan su texto y sus contactos. */
+:root{--ink:#092a48;--navy:#061c3e;--orange:#aa711e}
+.site-header,.site-footer{background:#061c3e}
+.brand-mark{background:#061c3e url("../marca/jb-oscuro.jpg") center 43%/150% no-repeat;
+  width:54px;height:54px;border:1px solid #c99b49;border-radius:12px;
+  box-shadow:0 9px 20px #00122866;transform:none;font-size:0}
+.hero{background:radial-gradient(circle at 72% 44%,#153e6d 0,#092b50 36%,#061b38 78%)}
+.hero h1 em{color:#f1bf63}
+.eyebrow{color:#f1bf63}.eyebrow .dot{background:#f1bf63;box-shadow:0 0 0 5px #f1bf6329}
+.button-copper{background:linear-gradient(145deg,#d9a348,#986018);box-shadow:0 7px 0 #68400d,0 14px 26px #06192755}
+.hero-signature{position:absolute;z-index:4;right:1%;bottom:0;width:100px;aspect-ratio:1;
+  border:2px solid #c99b49;border-radius:16px;background:#061c3e url("../marca/jb-oscuro.jpg") center 43%/145% no-repeat;
+  box-shadow:0 14px 28px #0011248c;transform:rotate(5deg)}
+.promo-card .card-body{position:relative;padding-right:64px}
+.promo-card .card-body::after{content:"";position:absolute;right:12px;top:12px;width:40px;height:40px;
+  border:1px solid #ead8b1;border-radius:9px;background:white url("../marca/jb-claro.jpg") center 44%/150% no-repeat;
+  box-shadow:0 3px 10px #0b293319;pointer-events:none}
+.detail-copy::before,.modal-info::before{content:"";display:block;width:92px;height:92px;
+  margin-bottom:18px;border:1px solid #e4d7b8;border-radius:15px;
+  background:white url("../marca/jb-claro.jpg") center 44%/142% no-repeat;
+  box-shadow:0 9px 20px #0b29331c}
+.modal-info .eyebrow,.detail-copy .eyebrow,.section-intro .eyebrow{color:#8d5b16}
+.modal-benefit,.detail-copy .benefit{color:#8d5b16}
+.chip[aria-pressed=true]{background:#0a2b4f;border-color:#0a2b4f}
+.site-footer .brand-mark{width:64px;height:64px}
+@media(max-width:760px){
+  .brand-mark{width:46px;height:46px;border-radius:10px}
+  .hero-signature{width:76px;right:3%;bottom:3%}
+  .modal-info::before{width:72px;height:72px;margin-bottom:14px}
+  .promo-card .card-body{padding-right:58px}
+}

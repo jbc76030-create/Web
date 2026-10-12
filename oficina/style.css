@@ -25,3 +25,32 @@ body{overflow-x:clip}
 /* Galería inmediatamente después de la presentación; resumen de tres datos. */
 .numbers{grid-template-columns:repeat(3,1fr)}
 @media(max-width:700px){.numbers{grid-template-columns:repeat(2,1fr)}.numbers div:last-child{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px}.gallery-band{padding:54px 0}}
+
+/* Identidad visual JB facilitada por el titular. */
+:root{--ink:#0a2b4c;--ink2:#061c3e;--copper:#99651b;--muted:#4c6374}
+.brand-logo{width:56px;height:56px;flex:none;display:block;border:1px solid #d9c18b;border-radius:12px;
+  background:#fff url("marca/jb-claro.jpg") center 44%/145% no-repeat;
+  box-shadow:0 5px 14px #092b4c1e}
+.header{background:#fffdf9}.header .brand{letter-spacing:1.1px}
+.hero-stamp{position:absolute;z-index:3;top:9%;right:1%;width:105px;height:105px;
+  border:2px solid #d3a64f;border-radius:17px;background:#061c3e url("marca/jb-oscuro.jpg") center 43%/145% no-repeat;
+  box-shadow:0 15px 32px #061c3e66;transform:rotate(5deg)}
+.brand-showcase{max-width:870px;margin:38px auto 0;border:1px solid #cda55f;border-radius:20px;
+  overflow:hidden;box-shadow:0 22px 44px #0c2c4b2e;background:#061c3e;line-height:0}
+.brand-showcase img{display:block;width:100%;height:auto}
+.office-band{background:radial-gradient(circle at 82% 22%,#173e73 0%,transparent 38%),linear-gradient(120deg,#061c3e,#0d3158)}
+.office-stack::after{content:"";position:absolute;right:-8px;bottom:-18px;width:98px;aspect-ratio:1;
+  background:#061c3e url("marca/jb-oscuro.jpg") center 43%/145% no-repeat;
+  border:2px solid #cf9d43;border-radius:15px;box-shadow:0 14px 26px #0007}
+.chat-head::before{content:"";width:38px;height:38px;flex:none;border:1px solid #d5ad5b;
+  border-radius:8px;background:#061c3e url("marca/jb-oscuro.jpg") center 43%/150% no-repeat}
+.gallery-band{background:linear-gradient(105deg,#e4e8e4,#f5ecdc)}
+.button.copper{background:#946014;border-color:#946014}
+.service-card:hover,.need-card:hover{border-color:#ba9554}
+@media(max-width:700px){
+  .brand-logo{width:44px;height:44px;border-radius:9px}
+  .hero-stamp{width:78px;height:78px;right:0;top:8%}
+  .brand-showcase{margin-top:28px;border-radius:14px}
+  .office-stack::after{width:68px;right:-4px;bottom:-4px}
+  .chat-head::before{width:32px;height:32px}
+}
