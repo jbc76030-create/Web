@@ -35,12 +35,13 @@
     benefit: document.querySelector('#modal-benefit'),
     wa: document.querySelector('#modal-wa'),
     mail: document.querySelector('#modal-mail'),
+    download: document.querySelector('#modal-download'),
     request: document.querySelector('#modal-request'),
     hotspotWa: document.querySelector('#modal-hotspot-wa'),
     hotspotMail: document.querySelector('#modal-hotspot-mail')
   };
   grid.addEventListener('click', event => {
-    const link = event.target.closest('.promo-card a');
+    const link = event.target.closest('.card-image-link');
     if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     const card = link.closest('.promo-card');
@@ -53,6 +54,8 @@
     fields.benefit.textContent = card.dataset.benefit;
     fields.wa.href = fields.request.href = fields.hotspotWa.href = card.dataset.wa;
     fields.mail.href = fields.hotspotMail.href = card.dataset.mail;
+    fields.download.href = card.dataset.download;
+    fields.download.download = card.dataset.download.split('/').pop();
     dialog.showModal();
     close.focus();
   });

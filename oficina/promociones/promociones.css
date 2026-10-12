@@ -116,3 +116,21 @@ body:has(.promo-dialog[open]){overflow:hidden}
   .modal-info::before{width:72px;height:72px;margin-bottom:14px}
   .promo-card .card-body{padding-right:58px}
 }
+.button-download{background:#f5e9d2;color:#092a48;border:1px solid #a97825;box-shadow:none}
+.button-download:hover{background:#e9d19c}
+.modal-actions .button-download,.mobile-actions .button-download{grid-column:1/-1;min-height:47px}
+@media(max-width:800px){.modal-info{padding-bottom:calc(185px + env(safe-area-inset-bottom))}}
+@media(max-width:760px){.detail-main{padding-bottom:185px}.mobile-actions .button-download{min-height:44px}}
+/* Catálogo legible: póster completo y acciones propias en cada tarjeta. */
+.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:start}
+.promo-card{max-width:none}
+.promo-card .card-image-link{height:auto}
+.promo-card img{width:100%;height:auto;aspect-ratio:1122/1402;object-fit:contain}
+.promo-card .card-body{padding:17px 20px 13px}
+.promo-card h3{font-size:1.24rem;min-height:0;margin:8px 0}
+.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px}
+.card-actions .button{min-height:49px;padding:8px 10px;font-size:.92rem;white-space:normal;text-align:center}
+.card-actions .button svg{width:20px;height:20px;flex:none}
+.card-actions .button-download{grid-column:1/-1}
+@media(max-width:1050px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.catalog-grid{grid-template-columns:1fr;gap:22px}.promo-card{max-width:580px;margin:0 auto;width:100%}.promo-card h3{font-size:1.16rem;min-height:0}.card-actions{padding:0 16px 18px}.promo-card .card-body{padding:14px 16px 12px}}
