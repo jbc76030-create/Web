@@ -26,6 +26,7 @@
   }));
   const dialog = document.querySelector('#promo-dialog');
   const close = document.querySelector('#modal-close');
+  if (navigator.share) document.body.classList.add('can-share');
   let opener = null;
   const fields = {
     image: document.querySelector('#modal-image'),
@@ -36,6 +37,7 @@
     wa: document.querySelector('#modal-wa'),
     mail: document.querySelector('#modal-mail'),
     download: document.querySelector('#modal-download'),
+    share: document.querySelector('#modal-share'),
     request: document.querySelector('#modal-request'),
     hotspotWa: document.querySelector('#modal-hotspot-wa'),
     hotspotMail: document.querySelector('#modal-hotspot-mail')
@@ -56,11 +58,35 @@
     fields.mail.href = fields.hotspotMail.href = card.dataset.mail;
     fields.download.href = card.dataset.download;
     fields.download.download = card.dataset.download.split('/').pop();
+    fields.share.dataset.share = card.dataset.download;
+    fields.share.dataset.title = card.dataset.label;
     dialog.showModal();
     close.focus();
   });
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { if (opener?.isConnected) opener.focus(); });
+  async function shareImage(button) {
+    const url = new URL(button.dataset.share, location.href).href;
+    const title = button.dataset.title + ' · JB Gestión Empresarial';
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'true');
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('No se pudo preparar la imagen');
+      const image = new File([await response.blob()], url.split('/').pop(), {type:'image/jpeg'});
+      if (navigator.canShare?.({files:[image]})) await navigator.share({title, files:[image]});
+      else await navigator.share({title, url});
+    } catch (error) {
+      if (error.name !== 'AbortError') window.location.href = url;
+    } finally {
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    }
+  }
+  document.addEventListener('click', event => {
+    const button = event.target.closest('.button-share');
+    if (button) shareImage(button);
+  });
   update();
 })();
