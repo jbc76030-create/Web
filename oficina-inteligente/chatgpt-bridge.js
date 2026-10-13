@@ -171,7 +171,7 @@
     if (c) {
       find('#oic-question').addEventListener('input', e => { retainedQuestion = e.target.value; updatePrompt(); });
       find('#oic-include-text').addEventListener('change', e => { includeText = e.target.checked; updatePrompt(); });
-      find('#oic-result-file').addEventListener('change', async e => { const file=e.target.files[0]; if(!file)return; if(file.size>1000000){notify('Usa un archivo de texto de hasta 1 MB.');return;} const content=await file.text(); if(content.trim().length>100000){notify('El resultado supera 100 000 caracteres.');return;} find('#oic-result').value=content; });
+      find('#oic-result-file').addEventListener('change', async e => { const file=e.target.files[0]; if(!file)return; try { if(!/\.(txt|md)$/i.test(file.name))throw Error('Selecciona un resultado en TXT o Markdown.'); if(!file.size||file.size>1000000)throw Error('Usa un archivo de texto de 1 byte a 1 MB.'); const content=await file.text(); if(content.trim().length>100000)throw Error('El resultado supera 100 000 caracteres.'); if(!content.trim())throw Error('El archivo no contiene un resultado.'); find('#oic-result').value=content; notice('Texto cargado. Revisa las fuentes y guarda el resultado.'); } catch(error) { notice(error.message||'No se pudo leer el archivo. Vuelve a seleccionarlo.'); notify(error.message||'No se pudo leer el archivo. Vuelve a seleccionarlo.'); } });
       preparePreview(c.id);
     } else { snapshot = null; revision++; }
   }
@@ -219,7 +219,7 @@
 
   function downloadPrompt() {
     const file = new Blob([find('#oic-prompt').value], {type:'text/plain;charset=utf-8'}), url=URL.createObjectURL(file);
-    const a=document.createElement('a');a.href=url;a.download=selectedCase+'-Encargo-'+providerInfo(selectedProvider).label+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    const a=document.createElement('a');a.href=url;a.download=selectedCase+'-Encargo-'+providerInfo(selectedProvider).label+'.txt';a.hidden=true;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
   }
 
   function enhance() {
@@ -293,3 +293,4 @@
   enhance();
   if(['#ia-clientes','#chatgpt','#gemini'].includes(root.location.hash)){selectedProvider=root.location.hash==='#gemini'?'gemini':'chatgpt';workspaceOpen=true;if(appState())renderWorkspace();}
 })(typeof window !== 'undefined' ? window : globalThis);
+
