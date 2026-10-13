@@ -1,4 +1,6 @@
-const NAME='oficina-cuba-cifrada-v3';const CORE=['./','index.html','payload.bin','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs'];let testOffline=false;
+const NAME='oficina-cuba-cifrada-v4-chatgpt-gemini';
+const CORE=['./','index.html','payload.bin','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs','chatgpt-bridge.js?v=4'];
+let testOffline=false;
 self.addEventListener('install',e=>e.waitUntil(caches.open(NAME).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('oficina-cuba-cifrada-')&&k!==NAME).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener('message',e=>{if(e.data?.type==='OFFLINE_TEST')testOffline=e.data.enabled===true;if(['OFFLINE_TEST','OFFLINE_STATE'].includes(e.data?.type))e.ports[0]?.postMessage({testOffline,cache:NAME})});
