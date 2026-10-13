@@ -101,9 +101,11 @@
       conflict = Error('Los datos cambiaron durante el cambio de contraseña. Se conserva la contraseña anterior. Cierra las otras pestañas y repite.');
       tx.abort();
     } else {
-      for (const row of after.records) rs.put(row);
-      for (const row of after.audit) as.put(row);
-      au.put(after.credential);
+      try {
+        for (const row of after.records) rs.put(row);
+        for (const row of after.audit) as.put(row);
+        if(after.credential)au.put(after.credential);
+      } catch(error) { conflict=error; try { tx.abort(); } catch {} }
     }
     try { await done; } catch (e) { throw conflict || e; }
   }

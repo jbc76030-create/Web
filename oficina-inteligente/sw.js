@@ -1,5 +1,5 @@
-const NAME='oficina-cuba-cifrada-v5-auth-fix';
-const CORE=['./','index.html','payload.bin?v=5','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs','chatgpt-bridge.js?v=5','auth.js?v=5','gate.js?v=5'];
+const NAME='oficina-cuba-cifrada-v6-atomic';
+const CORE=['./','index.html','payload.bin?v=6','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs','chatgpt-bridge.js?v=6','auth.js?v=6','gate.js?v=6'];
 let testOffline=false;
 self.addEventListener('install',e=>e.waitUntil(caches.open(NAME).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('oficina-cuba-cifrada-')&&k!==NAME).map(k=>caches.delete(k)))),self.clients.claim()])));
