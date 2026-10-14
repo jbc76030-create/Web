@@ -3,16 +3,16 @@
   function compose(payload){
     const css='<style>'+payload.css.replace(/<\/style/gi,'<\\/style')+'</style>';
     const scripts=payload.scripts.map((source,i)=>'<script>'+source.replace(/<\/script/gi,'<\\/script')+'\n//# sourceURL=oic-component-'+i+'.js\n</script>').join('');
-    return payload.html.replace('</head>',()=>css+'</head>').replace('</body>',()=>scripts+'<script src="chatgpt-bridge.js?v=6"></script></body>');
+    return payload.html.replace('</head>',()=>css+'</head>').replace('</body>',()=>'<script src="pdf-lib.min.js"></script>'+scripts+'<script src="chatgpt-bridge.js?v=7"></script></body>');
   }
   root.OfficeLoader={compose};
   if(!root.document)return;
   const doc=root.document,form=doc.getElementById('unlock'),button=doc.getElementById('open'),error=doc.getElementById('error'),key=doc.getElementById('key'),office=doc.getElementById('office');
-  if('serviceWorker' in root.navigator)root.navigator.serviceWorker.register('sw.js?v=6').catch(()=>{});
+  if('serviceWorker' in root.navigator)root.navigator.serviceWorker.register('sw.js?v=7').catch(()=>{});
   const setStatus=message=>{error.textContent=message;};
   async function label(){try{const p=await root.OfficeAuth.getProfile();doc.getElementById('key-label').textContent=p?'Contraseña de este navegador':'Clave privada de acceso';}catch(e){setStatus(e.message);}}
   root.OfficeAuth.onLocked=message=>{office.srcdoc='';doc.body.classList.remove('open');button.disabled=false;key.value='';setStatus(message);label();};
-  async function packet(){const r=await root.fetch('payload.bin?v=6',{cache:'no-cache'});if(!r.ok)throw Error('No se pudo cargar la Oficina. Comprueba la conexión inicial.');return new Uint8Array(await r.arrayBuffer());}
+  async function packet(){const r=await root.fetch('payload.bin?v=7',{cache:'no-cache'});if(!r.ok)throw Error('No se pudo cargar la Oficina. Comprueba la conexión inicial.');return new Uint8Array(await r.arrayBuffer());}
   form.addEventListener('submit',async e=>{
     e.preventDefault();button.disabled=true;setStatus('Comprobando y preparando la Oficina…');
     try{
@@ -39,3 +39,4 @@
   });
   label();
 })(typeof window==='undefined'?globalThis:window);
+

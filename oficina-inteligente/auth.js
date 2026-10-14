@@ -164,7 +164,7 @@
     await root.crypto.subtle.decrypt({name:'AES-GCM', iv:packet.iv, additionalData:PAYLOAD_AAD}, material.contentKey, packet.cipher);
     const validateRows = async (rows, key) => {
       const ids = new Set();
-      return Promise.all(rows.map(async r=>{if (!r[key] || ids.has(r[key])) throw Error('La copia contiene identificadores inválidos o repetidos.'); ids.add(r[key]);
+      return Promise.all(rows.map(async r=>{if (!r[key] || (key==='seq'&&(!Number.isSafeInteger(r[key])||r[key]<1)) || (key==='id'&&typeof r[key]!=='string') || ids.has(r[key])) throw Error('La copia contiene identificadores inválidos o repetidos.'); ids.add(r[key]);
         const iv=from64(r.iv), data=from64(r.data); if(iv.length!==12 || data.length<16)throw Error('Registro cifrado inválido.');
         const plain=await root.crypto.subtle.decrypt({name:'AES-GCM',iv},material.dataKey,data); const value=JSON.parse(dec.decode(plain));
         if(key==='id' && value.id!==r.id)throw Error('Identificador de registro inconsistente.');return {[key]:r[key],iv,data};}));
@@ -180,5 +180,7 @@
     return {restored:true,records:records.length,audit:audit.length};
   }
   if(channel)channel.onmessage=e=>{if(e.data?.type==='password-changed' && e.data.source!==sessionId && session && e.data.revision!==session.revision){session=null;delete root.__officeKey;root.OfficeAuth.onLocked?.('La contraseña cambió en otra pestaña. Vuelve a entrar con la nueva contraseña.');}};
-  root.OfficeAuth = {openDB,getProfile,unlock,getRevision,assertRevision,changePassword,encryptedBackup,restoreEncryptedBackup,parsePacket,readSnapshot,writeSnapshot,validateChange,derive,onLocked:null};
+  function lock(){session=null;delete root.__officeKey;root.OfficeAuth.onLocked?.('Oficina bloqueada. Entra con tu contraseña para continuar.');}
+  root.OfficeAuth = {lock,openDB,getProfile,unlock,getRevision,assertRevision,changePassword,encryptedBackup,restoreEncryptedBackup,parsePacket,readSnapshot,writeSnapshot,validateChange,derive,onLocked:null};
 })(typeof window === 'undefined' ? globalThis : window);
+
