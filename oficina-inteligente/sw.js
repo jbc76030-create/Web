@@ -1,5 +1,5 @@
-const NAME='oficina-cuba-cifrada-v9-completa';
-const CORE=['./','index.html','payload.bin?v=9','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs','chatgpt-bridge.js?v=9','downloads.js?v=9','auth.js?v=9','gate.js?v=9','pdf-lib.min.js','pdf.min.mjs','pdf.worker.min.mjs','tesseract.min.js','ocr-worker.min.js','tesseract-core-lstm.wasm.js','ocr-data/spa.traineddata.gz','ocr-data/eng.traineddata.gz','manual.html'];
+const NAME='oficina-cuba-cifrada-v11-completa';
+const CORE=['./','index.html','payload.bin?v=11','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','ai-worker.mjs','chatgpt-bridge.js?v=11','downloads.js?v=11','auth.js?v=11','gate.js?v=11','pdf-lib.min.js','pdf.min.mjs','pdf.worker.min.mjs','tesseract.min.js','ocr-worker.min.js','tesseract-core-lstm.wasm.js','ocr-data/spa.traineddata.gz','ocr-data/eng.traineddata.gz','manual.html'];
 let testOffline=false;
 self.addEventListener('install',e=>e.waitUntil(caches.open(NAME).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('oficina-cuba-cifrada-')&&k!==NAME).map(k=>caches.delete(k)))),self.clients.claim()])));
