@@ -218,6 +218,7 @@
   }
 
   function downloadPrompt() {
+    if(window.parent?.OfficeDownloads){window.parent.OfficeDownloads.save(find('#oic-prompt').value,'text/plain;charset=utf-8',selectedCase+'-Encargo-'+providerInfo(selectedProvider).label+'.txt');return;}
     const file = new Blob([find('#oic-prompt').value], {type:'text/plain;charset=utf-8'}), url=URL.createObjectURL(file);
     const a=document.createElement('a');a.href=url;a.download=selectedCase+'-Encargo-'+providerInfo(selectedProvider).label+'.txt';a.hidden=true;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
   }
